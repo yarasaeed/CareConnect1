@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CareConnect1</string>
+    <string name="version_1_0_0">Version 1_0_0</string>
+    <string name="continue_without_login">continue without login\n</string>
+    <string name="find_childcare_easily">Find Childcare Easily</string>
+    <string name="book">CareConnect allows you to quickly explore,\nfind and compare childcare services near you.\nSmart filters enable you to narrow your childcare options fast to only the services that match your unique needs</string>
+    <string name="enquire_and_apply_quickly">Enquire And Apply Quickly</string>
+    <string name="simple_enquire">CareConnect makes it simple to enquire and apply for childcare services.Simply save your favorites and then enquire or apply for multiple services in one go!</string>
+</resources>

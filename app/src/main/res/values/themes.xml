@@ -1,0 +1,66 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CareConnect1" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.CareConnect1" parent="Base.Theme.CareConnect1" />
+
+    <style name="mainToolbarTheme"  >
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:id">@id/generalToolbar</item>
+    <item name="titleTextAppearance">@style/textViewStyleDetail</item>
+    <item name="titleMarginTop">0dp</item>
+    <item name="android:paddingTop">10dp</item>
+    <item name="navigationIcon">@drawable/ic_back</item>
+    <item name="android:textAlignment">viewStart</item>
+    <item name="android:paddingStart">16dp</item>
+    <item name="android:paddingEnd">16dp</item>
+    <item name="subtitleTextColor">@color/black</item>
+</style>
+
+    <style name="editTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/font_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+    <style name="textViewStyleTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/font_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="textViewStyleMedium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="textViewStyleDetail">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/font_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="iconTint">@color/pink</item>
+        <item name="android:editTextColor">@color/black</item>
+        <item name="tint">@color/silver</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+</resources>

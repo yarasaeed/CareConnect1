@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.Page1">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+         />
+
+    <ImageView
+        android:layout_width="3050dp"
+        android:layout_height="360dp"
+        android:layout_above="@+id/view"
+        android:layout_marginBottom="-5dp"
+        android:background="@drawable/baby3"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/last_text"
+        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="-5dp"
+        android:fontFamily="@font/font_medium"
+        android:gravity="center"
+        android:text="@string/enquire_and_apply_quickly"
+        android:textColor="@color/purple"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/last_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_regular"
+        android:text="@string/simple_enquire"
+        android:textSize="20sp"
+        android:textColor="@color/purple"
+        android:gravity="center"
+        android:layout_marginBottom="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
