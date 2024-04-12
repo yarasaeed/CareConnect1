@@ -8,18 +8,18 @@
     <style name="Theme.CareConnect1" parent="Base.Theme.CareConnect1" />
 
     <style name="mainToolbarTheme"  >
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:id">@id/generalToolbar</item>
-    <item name="titleTextAppearance">@style/textViewStyleDetail</item>
-    <item name="titleMarginTop">0dp</item>
-    <item name="android:paddingTop">10dp</item>
-    <item name="navigationIcon">@drawable/ic_back</item>
-    <item name="android:textAlignment">viewStart</item>
-    <item name="android:paddingStart">16dp</item>
-    <item name="android:paddingEnd">16dp</item>
-    <item name="subtitleTextColor">@color/black</item>
-</style>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:id">@id/generalToolbar</item>
+        <item name="titleTextAppearance">@style/textViewStyleDetail</item>
+        <item name="titleMarginTop">0dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="navigationIcon">@drawable/ic_back</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="subtitleTextColor">@color/black</item>
+    </style>
 
     <style name="editTextStyle">
         <item name="android:layout_width">match_parent</item>
