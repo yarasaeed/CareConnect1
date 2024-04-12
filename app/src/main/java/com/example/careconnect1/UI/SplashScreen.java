@@ -15,7 +15,7 @@ import com.example.careconnect1.Utilities.AppCompatClass;
 public class SplashScreen extends AppCompatClass {
     private Intent intent;
     private SharedPreferences sharedPreferences;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
