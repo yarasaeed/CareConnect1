@@ -7,12 +7,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.careconnect1.Fragments.Page1;
 import com.example.careconnect1.Fragments.Page2;
-import com.example.careconnect1.Fragments.Page3;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
     //use FragmentActivity fragment, when use activity
     // Total number of pages (fragments) in the ViewPager2
-    final int pages_nb=3;
+    final int pages_nb=2;
     public ViewPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
@@ -31,11 +30,9 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return Page1.newInstance();
             case 1:
                 return Page2.newInstance();
-            case 2:
-            default:
-                return Page3.newInstance();
 
         }
+        return null;
     }
     @Override        // Return the total number of pages in the ViewPager2
 

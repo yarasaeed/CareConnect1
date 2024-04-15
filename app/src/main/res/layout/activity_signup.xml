@@ -73,7 +73,7 @@
         android:textColorHighlight="@color/cardview_dark_background" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/SigNupButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
@@ -83,7 +83,7 @@
         app:cornerRadius="20dp" />
 
     <TextView
-        android:id="@+id/signupText"
+        android:id="@+id/text_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

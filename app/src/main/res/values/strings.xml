@@ -6,11 +6,15 @@
     <string name="book">CareConnect allows you to quickly explore,\nfind and compare childcare services near you.\nSmart filters enable you to narrow your childcare options fast to only the services that match your unique needs</string>
     <string name="enquire_and_apply_quickly">Enquire And Apply Quickly</string>
     <string name="simple_enquire">CareConnect makes it simple to enquire and apply for childcare services.Simply save your favorites and then enquire or apply for multiple services in one go!</string>
-    <string name="password">Password</string>
-    <string name="email">email</string>
-    <string name="name">name</string>
-    <string name="create_account">Create Account</string>
-    <string name="already_have_an_account_signin_now">Already have an account? SignIN Now</string>
     <string name="signup">SignUp</string>
-    <string name="phone_number">phone_number</string>
+    <string name="name">name</string>
+    <string name="email">email</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">password</string>
+    <string name="create_account">create account</string>
+    <string name="already_have_an_account_signin_now">Already have an account?SignIn</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register_now">Register now</string>
+    <string name="open">open</string>
+    <string name="register">Register</string>
 </resources>
