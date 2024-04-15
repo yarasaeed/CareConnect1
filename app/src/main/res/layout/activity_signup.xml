@@ -82,15 +82,4 @@
         android:textSize="18sp"
         app:cornerRadius="20dp" />
 
-    <TextView
-        android:id="@+id/text_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="8dp"
-        android:text="@string/already_have_an_account_signin_now"
-        android:textAlignment="center"
-        android:textColor="@color/purple"
-        android:textSize="14sp" />
-
 </LinearLayout>
