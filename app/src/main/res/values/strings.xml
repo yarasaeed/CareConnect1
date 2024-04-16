@@ -17,4 +17,7 @@
     <string name="register_now">Register now</string>
     <string name="open">open</string>
     <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="Login">Login</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>
