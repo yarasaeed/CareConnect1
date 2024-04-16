@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment;
 
 import com.example.careconnect1.R;
 
-public class ParentsFragment extends Fragment {
+public class CareProvidersFragment extends Fragment {
 
 
 
-    public ParentsFragment() {
+    public CareProvidersFragment() {
         // Required empty public constructor
     }
 
-    public static ParentsFragment newInstance() {
+    public static CareProvidersFragment newInstance() {
 
-        return new ParentsFragment();
+        return new CareProvidersFragment();
     }
 
     @Override
@@ -29,10 +29,10 @@ public class ParentsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_care_providers_activity, container, false);
 
-        View v=  inflater.inflate(R.layout.fragment_parents_activity, container, false);
+
 
         return v;
     }
