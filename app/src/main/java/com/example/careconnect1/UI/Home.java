@@ -29,9 +29,18 @@ public class Home extends AppCompatActivity {
 
         // Set default fragment to ParentsFragment
         viewPager.setCurrentItem(0);
+        btnParents.setBackgroundColor(getResources().getColor(R.color.pink));
+        btnJobSeekers.setBackgroundColor(getResources().getColor(R.color.purple));
 
         // Set up button click listeners
-        btnParents.setOnClickListener(v -> viewPager.setCurrentItem(0));
-        btnJobSeekers.setOnClickListener(v -> viewPager.setCurrentItem(1));
+        btnParents.setOnClickListener(v -> {
+            viewPager.setCurrentItem(0);
+
+
+        });
+        btnJobSeekers.setOnClickListener(v -> {
+            viewPager.setCurrentItem(1);
+
+        });
     }
 }

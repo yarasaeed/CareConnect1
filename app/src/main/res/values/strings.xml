@@ -20,4 +20,6 @@
     <string name="login">Login</string>
     <string name="Login">Login</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="for_parents">For Parents</string>
+    <string name="for_care_providers">For Care Providers</string>
 </resources>
