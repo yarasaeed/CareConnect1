@@ -6,7 +6,6 @@
     android:theme="@style/Theme.MaterialComponents.Light"
     android:layout_height="match_parent"
     tools:context=".UI.UserType">
-
     <include layout="@layout/toolbar"/>
 
     <TextView

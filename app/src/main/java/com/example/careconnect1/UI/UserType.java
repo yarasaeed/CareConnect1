@@ -9,6 +9,7 @@ import com.example.careconnect1.Utilities.AppCompatClass;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 //appears in sign up choose the role before sign up
+
 public class UserType extends AppCompatClass {
     private MaterialButton btn_baby_sitter, btn_childcare_center, btn_parent;
     private MaterialToolbar toolbar;
