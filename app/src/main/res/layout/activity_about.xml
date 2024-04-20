@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Include Toolbar -->
+    <include layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"/>
+
+    <!-- Application Icon -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/icon"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/generalToolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/baby2" />
+
+    <!-- Application Name -->
+    <TextView
+        android:id="@+id/name"
+        style="@style/textViewStyleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_centerHorizontal="true"
+        android:text="Babysitter Application"
+        android:textColor="@color/black" />
+
+    <!-- Description ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/contactus"
+        android:layout_below="@+id/name"
+        android:layout_marginBottom="10dp">
+
+        <!-- Description TextView -->
+        <TextView
+            style="@style/textViewStyleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingBottom="100dp"
+            android:text="Welcome to our Babysitter Application. This app is designed to help parents find reliable and trustworthy babysitters for their children. Whether you need a babysitter for a night out or regular childcare, our app connects you with qualified babysitters in your area. With features like profile verification, ratings, and reviews, you can feel confident in your choice of babysitter. Download our app today and make finding childcare easier than ever before!"
+            android:textSize="18sp" />
+
+    </ScrollView>
+
+    <!-- Contact Us Button -->
+    <Button
+        android:id="@+id/contactus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:text="Contact Us"
+        android:textColor="@color/white"
+        android:padding="16dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:gravity="center" />
+
+</RelativeLayout>

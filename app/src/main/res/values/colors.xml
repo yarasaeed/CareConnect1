@@ -7,4 +7,6 @@
     <color name="silver">#FFababab</color>
     <color name="black_white">#FF000000</color>
     <color name="transparent">#00000000</color>
+    <color name="mainBackground">#FFFFFFFF</color>
+    <color name="red">#FFff0000</color>
 </resources>

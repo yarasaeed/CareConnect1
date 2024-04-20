@@ -1,6 +1,7 @@
 package com.example.careconnect1.UI;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.example.careconnect1.R;
 public class Home extends AppCompatActivity {
     private ViewPager2 viewPager;
     private Button btnParents, btnJobSeekers;
+    boolean clicked=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +35,13 @@ public class Home extends AppCompatActivity {
         // Set up button click listeners
         btnParents.setOnClickListener(v -> viewPager.setCurrentItem(0));
         btnJobSeekers.setOnClickListener(v -> viewPager.setCurrentItem(1));
+    }
+
+    public void Change(View view) {
+        System.out.println("enter");
+//        if(clicked==true){
+//            view.setBackgroundResource(R.drawable.pink);
+//            clicked=false;
+//        }
     }
 }

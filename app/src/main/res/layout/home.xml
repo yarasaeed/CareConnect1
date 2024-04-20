@@ -12,34 +12,41 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             app:contentInsetStart="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnParents"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="For Parents"
-                    android:textAllCaps="false" />
+                    android:backgroundTint="@color/pink"
+                    android:text="@string/for_parents"
+                    android:textAllCaps="false"
+                    />
 
                 <Button
                     android:id="@+id/btnJobSeekers"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="For Care Providers"
+                    android:backgroundTint="@color/pink"
+                    android:text="@string/for_care_providers"
                     android:textAllCaps="false" />
 
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
+
+
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

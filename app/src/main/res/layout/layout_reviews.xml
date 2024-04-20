@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="10dp"
+    app:strokeWidth="0.6dp"
+    app:strokeColor="@color/silver"
+    app:cardElevation="1dp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/layout_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icon_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:scaleType="centerCrop"
+                android:layout_margin="5dp"
+                android:visibility="gone"
+                android:src="@drawable/delete"
+                app:shapeAppearance="@style/circle" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/person"
+                app:shapeAppearance="@style/circle" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/icon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/textViewStyleMedium"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/book_id"
+                    style="@style/textViewStyleMedium"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/pink" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+        <TextView
+            android:padding="10dp"
+            android:layout_below="@+id/layout_profile"
+            style="@style/textViewStyleDetail"
+            android:id="@+id/text"/>
+        <TextView
+
+            android:layout_below="@+id/text"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/silver"
+            android:textSize="12sp"
+            android:layout_margin="5dp"
+            style="@style/textViewStyleDetail"
+            android:id="@+id/date"/>
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

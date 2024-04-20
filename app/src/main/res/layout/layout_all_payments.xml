@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_margin="5dp"
+    app:strokeColor="@color/silver"
+    app:strokeWidth="0.6dp"
+    app:cardElevation="2dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_2"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/textViewStyleDetail"
+                android:textSize="12sp"
+                android:textColor="@color/red"
+                android:layout_width="0dp"
+                android:layout_weight="1.7"
+                android:id="@+id/delete_cause"
+                android:text="loading"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                style="@style/textViewStyleDetail"
+                android:layout_width="0dp"
+                android:id="@+id/icon_delete"
+                android:layout_weight="0.3"
+                android:layout_height="20dp"
+                android:src="@drawable/delete"
+                android:text="@string/loading"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_below="@+id/layout_2"
+            android:id="@+id/layout_1"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/icon"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/debit"/>
+            <TextView
+                android:layout_centerVertical="true"
+                style="@style/textViewStyleMedium"
+                android:paddingStart="10dp"
+                android:id="@+id/number"
+                android:layout_toEndOf="@id/icon"
+                tools:ignore="RtlSymmetry" />
+        </RelativeLayout>
+        <TextView
+            android:layout_below="@+id/layout_1"
+            style="@style/textViewStyleMedium"
+            android:paddingStart="10dp"
+            android:id="@+id/name"
+            tools:ignore="RtlSymmetry" />
+        <TextView
+            android:layout_below="@+id/name"
+            style="@style/textViewStyleDetail"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="20dp"
+            android:id="@+id/date"
+            tools:ignore="RtlSymmetry" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

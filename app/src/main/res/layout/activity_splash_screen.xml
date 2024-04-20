@@ -24,14 +24,14 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/app_name"
-        app:srcCompat="@drawable/loginbkg" />
+        app:srcCompat="@drawable/logo" />
     <TextView
         style="@style/textViewStyleDetail"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/silver"
         android:layout_margin="50dp"
-        android:textSize="14sp"
+        android:textSize="14dp"
         android:text="@string/version_1_0_0" />
 
 

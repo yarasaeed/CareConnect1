@@ -1,0 +1,40 @@
+
+<FrameLayout
+    android:visibility="gone"
+    android:id="@+id/layout_loading"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:background="@color/silver"
+        android:clickable="true"
+        android:focusable="true"
+        android:alpha="0.9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="60dp"
+            android:id="@+id/logo_c"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/logo"/>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/logo_c"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateOnly="true"
+            app:indicatorColor="@color/pink"/>
+    </RelativeLayout>
+
+
+</FrameLayout>

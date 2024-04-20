@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminActivity">
+    <include layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_below="@+id/generalToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridLayout
+            android:layout_columnWeight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/cardView"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_row="0"
+                android:id="@+id/card_user">
+                <TextView
+                    style="@style/textViewStyleTitle"
+                    android:text="@string/users"
+                    android:layout_gravity="center"
+                    app:drawableTopCompat="@drawable/users" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/cardView"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_columnWeight="1"
+                android:id="@+id/card_payments">
+                <TextView
+                    style="@style/textViewStyleTitle"
+                    android:text="@string/payments"
+                    android:layout_gravity="center"
+                    app:drawableTopCompat="@drawable/payments" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/cardView"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_columnWeight="1"
+                android:id="@+id/card_images">
+                <TextView
+                    style="@style/textViewStyleTitle"
+                    android:text="images"
+                    android:layout_gravity="center"
+                    app:drawableTopCompat="@drawable/images_slide" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </GridLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>
