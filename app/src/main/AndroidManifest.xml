@@ -31,11 +31,9 @@
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
         <activity
-            android:name=".UI.BookingDetailsActivity"
+            android:name=".UI.UserType"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
-
-
         <activity
             android:name=".UI.SplashScreen"
             android:exported="true">
