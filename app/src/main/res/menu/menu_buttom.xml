@@ -6,21 +6,21 @@
         android:title="@string/home"
         app:showAsAction="always"
         android:id="@+id/home"
-        android:icon="@drawable/home"/>
+        android:icon="@drawable/ic_home"/>
     <item
         android:title="@string/booking"
         app:showAsAction="always"
         android:id="@+id/booking"
-        android:icon="@drawable/calendar"
+        android:icon="@drawable/ic_calendar"
         tools:ignore="AlwaysShowAction" />
     <item
         android:title="@string/support"
         app:showAsAction="always"
         android:id="@+id/support"
-        android:icon="@drawable/support"/>
+        android:icon="@drawable/ic_support"/>
     <item
         android:title="@string/profile"
         app:showAsAction="always"
         android:id="@+id/profile"
-        android:icon="@drawable/user"/>
+        android:icon="@drawable/ic_user"/>
 </menu>

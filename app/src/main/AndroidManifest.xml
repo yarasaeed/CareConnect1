@@ -35,6 +35,10 @@
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
         <activity
+            android:name=".UI.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge" />
+        <activity
             android:name=".UI.SplashScreen"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    style="@style/mainBackground"
+    tools:context=".UI.MainActivity">
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/layout_main_toolbar">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/icon_menu"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    app:srcCompat="@drawable/ic_menu" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="110dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    app:contentPaddingTop="6dp"
+                    app:srcCompat="@drawable/logo"/>
+
+            </RelativeLayout>
+
+            <include
+                layout="@layout/toolbar"
+                android:visibility="gone" />
+
+
+
+            <FrameLayout
+                android:layout_below="@+id/layout_main_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/myFragment"/>
+        </RelativeLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:backgroundTint="@color/purple" >
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:backgroundTint="@color/transparent"
+                    app:elevation="0dp"
+                    app:itemIconTint="@android:color/white"
+                    app:itemRippleColor="@android:color/white"
+                    app:itemTextColor="@android:color/white"
+                    app:itemTextAppearanceActive="@style/navigationTextActive"
+                    app:itemTextAppearanceInactive="@style/textViewStyleDetail"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/menu_buttom" />
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <include layout="@layout/main_navigation" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>
