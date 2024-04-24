@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatClass {
                     return true;
 
                 case R.id.nav_reviews:
-                    if(!user_role.equals("customer")){
+                    if(!user_role.equals("parent")){
                         openActivity(Reviews.class);
                     }
                     return true;

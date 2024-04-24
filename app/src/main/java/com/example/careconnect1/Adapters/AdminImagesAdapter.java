@@ -74,7 +74,7 @@ public class AdminImagesAdapter extends RecyclerView.Adapter<AdminImagesAdapter.
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Delete image");
         builder.setMessage("Are you sure?");
-        builder.setIcon(R.drawable.delete);
+        builder.setIcon(R.drawable.ic_delete);
         builder.setPositiveButton("Yes", (dialog, which) -> {         // Make a  request to delete the image on the server
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "delete_image.php?name="+ name , response -> {
