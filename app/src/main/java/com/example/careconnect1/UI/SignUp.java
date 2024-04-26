@@ -1,4 +1,3 @@
-
 package com.example.careconnect1.UI;
 
 import android.content.Intent;
@@ -35,7 +34,7 @@ public class SignUp extends AppCompatClass {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        setMethods("Signup As", "SignUp");
+        setMethods(" ", " ");
 
     }
 
@@ -45,7 +44,7 @@ public class SignUp extends AppCompatClass {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null){
-             user_role = bundle.getString("type", "");
+            user_role = bundle.getString("type", "");
         }
         login_button = findViewById(R.id.loginButton);
         fname = findViewById(R.id.fn_edit);
