@@ -24,11 +24,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.careconnect1.About;
 import com.example.careconnect1.Admin.AdminActivity;
-import com.example.cleanup.Fragments.FragmentBookingCleaner;
-import com.example.cleanup.Fragments.FragmentBookingCustomer;
-import com.example.cleanup.Fragments.FragmentHome;
-import com.example.cleanup.Fragments.FragmentProfile;
-import com.example.cleanup.Fragments.FragmentSupport;
+//import com.example.careconnect1.Fragments.FragmentBookingCleaner;
+//import com.example.careconnect1.Fragments.FragmentBookingCustomer;
+import com.example.careconnect1.Fragments.FragmentHome;
+//import com.example.careconnect1.Fragments.FragmentProfile;
+//import com.example.careconnect1.Fragments.FragmentSupport;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.example.careconnect1.Utilities.UserData;
@@ -104,12 +104,12 @@ public class MainActivity extends AppCompatClass {
                     Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                     sharingIntent.setType("text/plain");
                     String shareBody = "https://play.google.com/store/apps/details?id="+getPackageName();
-                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Lets find cleaners");
+                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Lets find providers");
                     sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                     startActivity(Intent.createChooser(sharingIntent, "Share via"));
                     return true;
                 case R.id.nav_more:
-                    Uri url=Uri.parse("http://play.google.com/store/search?q=pub:cleaners");
+                    Uri url=Uri.parse("http://play.google.com/store/search?q=pub:providers");
                     Intent launch=new Intent(Intent.ACTION_VIEW,url);
                     startActivity(launch);
 
@@ -137,10 +137,10 @@ public class MainActivity extends AppCompatClass {
                     return true;
 
                 case R.id.nav_offers:
-                    if(user_role.equals("customer")){
+                    if(user_role.equals("parent")){
                         openActivity(AllOffers.class);
                     }else{
-                        openActivity(CleanerOffers.class);
+                        openActivity(ProviderOffers.class);
                     }
                     return true;
 
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatClass {
                     while (i < jsonArray.length()) {
                         JSONObject jSONObject = jsonArray.getJSONObject(i);
                         user_role = jSONObject.getString("UserRole");
-                        if(user_role.toLowerCase(Locale.ROOT).equals("company")){
+                        if(user_role.toLowerCase(Locale.ROOT).equals("center")){
                             name.setText(jSONObject.getString("f_name"));
                         }else{
                             name.setText(jSONObject.getString("f_name") + " " +jSONObject.getString("l_name"));
@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatClass {
                                 .skipMemoryCache(true)
                                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                                 .into(icon_small);
-                        if(user_role.toLowerCase(Locale.ROOT).equals("customer")){
+                        if(user_role.toLowerCase(Locale.ROOT).equals("parent")){
                             Menu nav_Menu = navigationView.getMenu();
                             nav_Menu.findItem(R.id.nav_reviews).setVisible(false);
                         }
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatClass {
                             nav_Menu.findItem(R.id.nav_admin).setVisible(false);
                         }
 
-                        if(user_role.toLowerCase(Locale.ROOT).equals("company") ||
+                        if(user_role.toLowerCase(Locale.ROOT).equals("center") ||
                                 user_role.toLowerCase(Locale.ROOT).equals("individual")){
                             Menu nav_Menu = navigationView.getMenu();
                             nav_Menu.findItem(R.id.nav_sites).setVisible(false);
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatClass {
                             return true;
                         }
                         else if (item.getItemId() == R.id.booking) {
-                            if(user_role.equals("customer")){
+                            if(user_role.equals("parent")){
 
                                 switchFragment(new FragmentBookingCustomer());
                             }else if(user_role.equals("admin")){
@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatClass {
                     });
                     switch (current_tab){
                         case "2":
-                            if(user_role.equals("customer")){
+                            if(user_role.equals("parent")){
                                 switchFragment(new FragmentBookingCustomer());
                             }else{
 

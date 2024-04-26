@@ -111,7 +111,7 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.MyHolder
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Delete review");
         builder.setMessage("Are you sure?");
-        builder.setIcon(R.drawable.delete);
+        builder.setIcon(R.drawable.ic_delete);
         builder.setPositiveButton("Yes", (dialog, which) -> {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "delete_review.php?id="+ id , response -> {
                 Toast.makeText(context, response.trim(), Toast.LENGTH_SHORT).show();

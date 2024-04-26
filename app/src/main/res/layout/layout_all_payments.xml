@@ -27,14 +27,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="1.7"
                 android:id="@+id/delete_cause"
-                android:text="loading"/>
+                android:text="@string/loading"/>
             <com.google.android.material.imageview.ShapeableImageView
                 style="@style/textViewStyleDetail"
                 android:layout_width="0dp"
                 android:id="@+id/icon_delete"
                 android:layout_weight="0.3"
                 android:layout_height="20dp"
-                android:src="@drawable/delete"
+                android:src="@drawable/ic_delete"
                 android:text="@string/loading"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -50,7 +50,7 @@
                 android:layout_height="50dp"
                 android:id="@+id/icon"
                 android:layout_centerVertical="true"
-                app:srcCompat="@drawable/debit"/>
+                app:srcCompat="@drawable/ic_debit"/>
             <TextView
                 android:layout_centerVertical="true"
                 style="@style/textViewStyleMedium"

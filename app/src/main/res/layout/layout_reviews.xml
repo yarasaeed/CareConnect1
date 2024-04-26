@@ -27,7 +27,7 @@
                 android:scaleType="centerCrop"
                 android:layout_margin="5dp"
                 android:visibility="gone"
-                android:src="@drawable/delete"
+                android:src="@drawable/ic_delete"
                 app:shapeAppearance="@style/circle" />
 
             <com.google.android.material.imageview.ShapeableImageView

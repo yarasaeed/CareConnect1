@@ -79,13 +79,13 @@ public class AllPaymentsAdapter extends RecyclerView.Adapter<AllPaymentsAdapter.
         }
 
         if(currentItem.getType().equals(PaymentMethod.CREDIT.toString())){
-            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.credit_card,null));
+            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_credit_card,null));
 
         }else if(currentItem.getType().equals(PaymentMethod.DEBIT.toString())){
-            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.debit,null));
+            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_debit,null));
 
         }else{
-            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.paypal,null));
+            holder.icon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_paypal,null));
         }
 
 
@@ -108,7 +108,7 @@ public class AllPaymentsAdapter extends RecyclerView.Adapter<AllPaymentsAdapter.
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Delete Card");
         builder.setMessage("Are you sure?");
-        builder.setIcon(R.drawable.delete);
+        builder.setIcon(R.drawable.ic_delete);
         builder.setPositiveButton("Yes", (dialog, which) -> {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "delete_payment.php?id="+ site_id , response -> {
                 Toast.makeText(context, response.trim(), Toast.LENGTH_SHORT).show();

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.FragmentHome">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_above="@+id/last_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_search"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/activity_welcome" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                android:weightSum="2">
+
+                <TextView
+
+                    style="@style/textViewStyleTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/browser_providers"
+                    android:textSize="18sp"/>
+
+                <TextView
+
+                    android:id="@+id/show_more_cleaners"
+                    style="@style/textViewStyleDetail"
+                    android:padding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/show_more"
+                    android:textColor="@color/purple"
+                    android:textSize="14sp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerView"/>
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp"
+                android:weightSum="2">
+
+                <TextView
+                    style="@style/textViewStyleTitle"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/providers_offers"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:id="@+id/show_more_offers"
+                    style="@style/textViewStyleDetail"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/browse_more"
+                    android:textColor="@color/purple"
+                    android:textSize="14sp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/recyclerViewOffers"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/last_view"
+        android:layout_alignParentBottom="true"/>
+
+    <include layout="@layout/layout_loading"/>
+</RelativeLayout>

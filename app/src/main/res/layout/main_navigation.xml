@@ -5,10 +5,7 @@
     android:layout_height="match_parent"
     android:theme="@style/Theme.MaterialComponents.Light"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="start"
-   >
-
-
+    android:layout_gravity="start">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,9 +13,6 @@
             android:id="@+id/user_layout"
             android:layout_width="match_parent"
             android:layout_height="150dp">
-
-
-
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/icon"
@@ -55,18 +49,18 @@
                 android:layout_marginBottom="10dp"
                 app:shapeAppearance="@style/circle"
                 android:scaleType="center" />
-                <TextView
-                    android:layout_marginBottom="10dp"
-                    android:textColor="@color/black"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="@font/font_regular"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/icon_small"
-                    android:textDirection="ltr"
-                    android:id="@+id/user_role"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center" />
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/font_regular"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/icon_small"
+                android:textDirection="ltr"
+                android:id="@+id/user_role"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
 
             <TextView
                 android:visibility="gone"
@@ -105,6 +99,4 @@
             app:subheaderTextAppearance="@style/textViewStyleTitle" />
 
     </RelativeLayout>
-
-   
 </com.google.android.material.navigation.NavigationView>

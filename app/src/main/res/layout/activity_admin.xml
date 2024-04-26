@@ -26,7 +26,7 @@
                     style="@style/textViewStyleTitle"
                     android:text="@string/users"
                     android:layout_gravity="center"
-                    app:drawableTopCompat="@drawable/users" />
+                    app:drawableTopCompat="@drawable/ic_users" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -39,7 +39,7 @@
                     style="@style/textViewStyleTitle"
                     android:text="@string/payments"
                     android:layout_gravity="center"
-                    app:drawableTopCompat="@drawable/payments" />
+                    app:drawableTopCompat="@drawable/ic_payments" />
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -50,9 +50,9 @@
                 android:id="@+id/card_images">
                 <TextView
                     style="@style/textViewStyleTitle"
-                    android:text="images"
+                    android:text="@string/images"
                     android:layout_gravity="center"
-                    app:drawableTopCompat="@drawable/images_slide" />
+                    app:drawableTopCompat="@drawable/ic_images_slide" />
             </com.google.android.material.card.MaterialCardView>
 
         </GridLayout>

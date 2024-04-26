@@ -58,7 +58,7 @@ public class AdminImagesAdapter extends RecyclerView.Adapter<AdminImagesAdapter.
         Glide.with(activity).load(MAIN_IMAGES_DIR + list.get(position))
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .error(R.drawable.image_broke)
+                .error(R.drawable.ic_image_broke)
                 .into(holder.icon);
 
         holder.icon_delete.setOnClickListener(v -> delete(list.get(position)));

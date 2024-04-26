@@ -62,7 +62,7 @@ public class AllReviews extends AppCompatClass {
     public void getReviews(){
         arrayList = new ArrayList<>();
 
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "select_reviews_where_customer.php?customer_id="+ user_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "select_reviews_where_provider.php?provider_id="+ user_id, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -76,7 +76,7 @@ public class AllReviews extends AppCompatClass {
                     String text = jSONObject.getString("ReviewText");
                     String user_id = jSONObject.getString("UserID");
                     String id = jSONObject.getString("ReviewID");
-                    String cleaner_id = jSONObject.getString("CleanerID");
+                    String cleaner_id = jSONObject.getString("ProvidererID");
                     String book_id = jSONObject.getString("r_booking_id");
                     String customer_name = jSONObject.getString("f_name") +" "+jSONObject.getString("l_name")  ;
                     String customer_icon = jSONObject.getString("icon");

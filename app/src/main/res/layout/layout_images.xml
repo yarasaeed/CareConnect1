@@ -19,7 +19,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/delete"
+        app:srcCompat="@drawable/ic_delete"
         android:scaleType="fitXY"
         android:id="@+id/icon_delete"/>
 
