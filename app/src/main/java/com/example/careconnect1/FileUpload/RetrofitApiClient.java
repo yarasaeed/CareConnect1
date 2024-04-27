@@ -1,7 +1,9 @@
 package com.example.careconnect1.FileUpload;
 
 import static com.example.careconnect1.Utilities.Config.IP;
+
 import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -9,6 +11,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitApiClient {
     private static Retrofit retrofit = null;
+
+
     private RetrofitApiClient() {}
 
     public static synchronized Retrofit getClient() {

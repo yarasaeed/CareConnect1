@@ -2,6 +2,7 @@ package com.example.careconnect1.UI;
 
 import static com.example.careconnect1.Utilities.Config.IP;
 import static com.example.careconnect1.Utilities.Config.USER_IMAGES_DIR;
+
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -10,11 +11,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,21 +25,20 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.careconnect1.About;
 import com.example.careconnect1.Admin.AdminActivity;
-//import com.example.careconnect1.Fragments.FragmentBookingCleaner;
-//import com.example.careconnect1.Fragments.FragmentBookingCustomer;
+import com.example.careconnect1.Fragments.FragmentBookingParent;
+import com.example.careconnect1.Fragments.FragmentBookingProvider;
 import com.example.careconnect1.Fragments.FragmentHome;
-//import com.example.careconnect1.Fragments.FragmentProfile;
-//import com.example.careconnect1.Fragments.FragmentSupport;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatClass {
@@ -263,12 +265,12 @@ public class MainActivity extends AppCompatClass {
                         else if (item.getItemId() == R.id.booking) {
                             if(user_role.equals("parent")){
 
-                                switchFragment(new FragmentBookingCustomer());
+                                switchFragment(new FragmentBookingParent());
                             }else if(user_role.equals("admin")){
                                 return false;
 
                             }else{
-                                switchFragment(new FragmentBookingCleaner());
+                                switchFragment(new FragmentBookingProvider());
                             }
                             return true;
 
@@ -288,10 +290,10 @@ public class MainActivity extends AppCompatClass {
                     switch (current_tab){
                         case "2":
                             if(user_role.equals("parent")){
-                                switchFragment(new FragmentBookingCustomer());
+                                switchFragment(new FragmentBookingParent());
                             }else{
 
-                                switchFragment(new FragmentBookingCleaner());
+                                switchFragment(new FragmentBookingProvider());
                             }
                             bottomNavigationView.setSelectedItemId(R.id.booking);
 

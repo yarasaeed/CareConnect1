@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UI.Booking">
+
+    <include layout="@layout/toolbar"/>
+
+        <RelativeLayout
+            android:layout_below="@+id/generalToolbar"
+            android:id="@+id/layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user"
+                app:shapeAppearance="@style/circle" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/icon"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/textViewStyleTitle"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:layout_toEndOf="@+id/icon" />
+
+                <TextView
+                    android:id="@+id/role"
+                    style="@style/textViewStyleDetail"
+                    android:textSize="12sp"
+                    android:layout_toEndOf="@+id/icon" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/drawable_border"
+            android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_below="@+id/layout_1"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:id="@+id/layout_services"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_card_border"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/textViewStyleMedium"
+            android:text="select services"/>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            app:chipSpacing="5dp"
+            app:selectionRequired="true"
+            app:singleSelection="false">
+        </com.google.android.material.chip.ChipGroup>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        style="@style/textViewStyleMedium"
+        android:background="@drawable/drawable_card_border"
+        android:padding="15dp"
+        android:id="@+id/btn_book_date"
+        android:text="select date and time"/>
+
+    <TextView
+        style="@style/textViewStyleMedium"
+        android:layout_margin="10dp"
+        android:text="select payment method"/>
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:checked="true"
+                    android:id="@+id/radio_cash"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/purple"
+                    android:text="cash"/>
+                <RadioButton
+                    android:id="@+id/radio_card"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/purple"
+                    android:text="card"/>
+            </RadioGroup>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/drawable_card_border"
+                android:orientation="vertical"
+                android:id="@+id/layout_card">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:padding="20dp"
+                    android:id="@+id/spinner"
+                    android:text="card"/>
+                <TextView
+                    android:id="@+id/text_add_card"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    style="@style/textViewStyleMedium"
+                    android:text="add new card"
+                    app:drawableStartCompat="@drawable/ic_add_service" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/mainButtons"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/btn_book"
+        android:text="send request"/>
+</androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+
+
+</RelativeLayout>

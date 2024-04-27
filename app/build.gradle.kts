@@ -47,6 +47,7 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
     implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+    implementation ("com.wdullaer:materialdatetimepicker:4.2.3")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     dependencies {
 

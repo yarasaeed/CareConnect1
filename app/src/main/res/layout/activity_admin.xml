@@ -5,59 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.AdminActivity">
-    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/toolbar" />
 
     <ScrollView
-        android:layout_below="@+id/generalToolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/generalToolbar">
 
-        <GridLayout
-            android:layout_columnWeight="2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.card.MaterialCardView
-                style="@style/cardView"
-                android:layout_column="0"
-                android:layout_columnWeight="1"
-                android:layout_row="0"
-                android:id="@+id/card_user">
-                <TextView
-                    style="@style/textViewStyleTitle"
-                    android:text="@string/users"
-                    android:layout_gravity="center"
-                    app:drawableTopCompat="@drawable/ic_users" />
-            </com.google.android.material.card.MaterialCardView>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_user"
+                    style="@style/cardView"
+                    android:layout_columnWeight="1">
+
+                    <TextView
+                        style="@style/textViewStyleTitle"
+                        android:layout_gravity="center"
+                        android:text="@string/users"
+                        app:drawableTopCompat="@drawable/ic_users" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_payments"
+                    style="@style/cardView"
+                    android:layout_columnWeight="1">
+
+                    <TextView
+                        style="@style/textViewStyleTitle"
+                        android:layout_gravity="center"
+                        android:text="@string/payments"
+                        app:drawableTopCompat="@drawable/ic_payments" />
+                </com.google.android.material.card.MaterialCardView>
+            </GridLayout>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_images"
                 style="@style/cardView"
-                android:layout_column="1"
-                android:layout_row="0"
-                android:layout_columnWeight="1"
-                android:id="@+id/card_payments">
-                <TextView
-                    style="@style/textViewStyleTitle"
-                    android:text="@string/payments"
-                    android:layout_gravity="center"
-                    app:drawableTopCompat="@drawable/ic_payments" />
-            </com.google.android.material.card.MaterialCardView>
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
 
-            <com.google.android.material.card.MaterialCardView
-                style="@style/cardView"
-                android:layout_column="0"
-                android:layout_row="1"
-                android:layout_columnWeight="1"
-                android:id="@+id/card_images">
                 <TextView
                     style="@style/textViewStyleTitle"
+                    android:layout_gravity="center"
                     android:text="@string/images"
-                    android:layout_gravity="center"
                     app:drawableTopCompat="@drawable/ic_images_slide" />
             </com.google.android.material.card.MaterialCardView>
 
-        </GridLayout>
+        </LinearLayout>
     </ScrollView>
-
-
-
 </RelativeLayout>

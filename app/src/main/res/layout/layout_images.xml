@@ -1,6 +1,6 @@
 <RelativeLayout android:layout_alignParentTop="true"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="@dimen/flipper_height"
     android:layout_margin="5dp"
     android:theme="@style/Theme.MaterialComponents.Light"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,8 +9,8 @@
     <com.google.android.material.imageview.ShapeableImageView
         app:shapeAppearance="@style/flipperImage"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/corner"
+        android:layout_height="@dimen/flipper_height"
+        android:background="@drawable/bg_corner"
         android:scaleType="fitXY"
         android:id="@+id/icon"/>
 

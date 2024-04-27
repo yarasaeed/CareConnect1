@@ -1,6 +1,9 @@
 package com.example.careconnect1.FileUpload;
 
+
+
 import androidx.annotation.NonNull;
+
 import java.io.File;
 
 import okhttp3.MediaType;
@@ -10,7 +13,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ImageUpload {
+public class ImageUploaderClass {
 
     public interface onSuccessfulTask {
         void onSuccess();

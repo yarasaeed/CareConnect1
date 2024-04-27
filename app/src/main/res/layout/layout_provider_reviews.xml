@@ -40,7 +40,7 @@
                 android:layout_marginEnd="5dp"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="5dp"
-                android:src="@drawable/person"
+                android:src="@drawable/ic_person"
                 app:shapeAppearance="@style/circle" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -62,7 +62,7 @@
                     android:id="@+id/book_id"
                     style="@style/textViewStyleMedium"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/pink" />
+                    android:textColor="@color/purple" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </RelativeLayout>

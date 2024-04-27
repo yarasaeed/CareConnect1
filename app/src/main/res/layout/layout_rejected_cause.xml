@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        style="@style/editTextStyle"
+        android:id="@+id/text_cause"
+        android:hint="@string/write_the_reason_for_rejection"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_below="@+id/text_cause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/btn_cancel"
+            style="@style/textViewStyleMedium"
+            android:padding="5dp"
+            android:text="cancel"/>
+        <TextView
+            android:id="@+id/btn_ok"
+            style="@style/textViewStyleMedium"
+            android:padding="5dp"
+            android:text="reject booking"
+            android:textColor="@color/red"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

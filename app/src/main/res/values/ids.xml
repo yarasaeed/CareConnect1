@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="center_name" type="id">Center Name</item>
+    <item name="parent_name" type="id">Parent Name</item>
+</resources>

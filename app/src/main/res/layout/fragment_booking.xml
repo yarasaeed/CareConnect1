@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.FragmentBookingParent">
+
+    <TextView
+        android:id="@+id/btn_book"
+        style="@style/textViewStyleTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/book_now"
+        android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_add_service" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/btn_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/last_view"
+        android:id="@+id/recyclerView"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <View
+        android:id="@+id/last_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/text_no_book"
+        style="@style/textViewStyleDetail"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:layout_below="@+id/text_no_book"
+        android:id="@+id/btn_book_2"
+        style="@style/textViewStyleTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/book_now"
+        android:textSize="18sp"
+        app:drawableStartCompat="@drawable/ic_add_service" />
+</RelativeLayout>

@@ -1,8 +1,8 @@
 package com.example.careconnect1.Admin;
 
-import static com.example.careconnect1.Utilities.Config.IP;
 import static com.example.careconnect1.Utilities.Config.IPADMIN;
 import static com.example.careconnect1.Utilities.GetImagePath.getRealPath;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -13,22 +13,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.careconnect1.Adapters.AdminImagesAdapter;
-import com.example.careconnect1.FileUpload.ImageUpload;
+import com.example.careconnect1.FileUpload.ImageUploaderClass;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,16 +39,11 @@ import java.util.Map;
 public class AllImages extends AppCompatClass {
     private RecyclerView recyclerView;
     private AdminImagesAdapter adapter;
-
     private TextView text_add;
-
     private ActivityResultLauncher<Intent> activityResultLauncher;
-
     Uri uriImage = null;
     String nameOfImage="", typeOfImage="";
-
     private ArrayList<String> arrayList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +55,6 @@ public class AllImages extends AppCompatClass {
     public void setInitialize() {
         super.setInitialize();
         recyclerView = findViewById(R.id.recyclerView);
-
         text_add = findViewById(R.id.text_add);
 
 
@@ -173,7 +170,7 @@ public class AllImages extends AppCompatClass {
 
     private void uploadImage(){
         String filePath = getRealPath(this, uriImage);
-        ImageUpload.uploadImage(filePath, nameOfImage, "images/main", new ImageUpload.onSuccessfulTask() {
+        ImageUploaderClass.uploadImage(filePath, nameOfImage, "images/main", new ImageUploaderClass.onSuccessfulTask() {
             @Override
             public void onSuccess() {
 
@@ -189,8 +186,8 @@ public class AllImages extends AppCompatClass {
 
     private void insertImage(){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, IPADMIN + "insert_image.php", response -> {
-            Toast.makeText(AllImages.this, response.trim(), Toast.LENGTH_SHORT).show();
-            getImages();
+           Toast.makeText(AllImages.this, response.trim(), Toast.LENGTH_SHORT).show();
+             getImages();
 
         }, error -> {
 

@@ -2,15 +2,18 @@ package com.example.careconnect1.Adapters;
 
 import static com.example.careconnect1.Utilities.Config.IPADMIN;
 import static com.example.careconnect1.Utilities.Config.MAIN_IMAGES_DIR;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -20,7 +23,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.careconnect1.Admin.AllImages;
 import com.example.careconnect1.R;
 import com.google.android.material.imageview.ShapeableImageView;
+
 import java.util.ArrayList;
+
+//used to display and manage a list of images in a RecyclerView within an Android application.
 
 public class AdminImagesAdapter extends RecyclerView.Adapter<AdminImagesAdapter.recyclerHolder> {
     ArrayList<String> list; // List to store the image URLs
@@ -40,7 +46,7 @@ public class AdminImagesAdapter extends RecyclerView.Adapter<AdminImagesAdapter.
             icon_delete = v.findViewById(R.id.icon_delete);// Reference to the image view for deletion
         }
 
-    }
+        }
 
 
     @NonNull
@@ -90,3 +96,4 @@ public class AdminImagesAdapter extends RecyclerView.Adapter<AdminImagesAdapter.
         builder.show();
     }
 }
+//this adapter is responsible for displaying a list of images in a RecyclerView, allowing the user to delete an image by clicking on a delete icon, and handling the server communication for deleting the image.

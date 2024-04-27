@@ -1,8 +1,9 @@
 package com.example.careconnect1.Interface;
 
 public interface FragmentRefresh {
-     void refreshBookingCleaner();
+
+     void refreshBookingProvider();
      void refreshProfile();
 
-     void refreshBookingCustomer();
+     void refreshBookingParent();
 }
