@@ -29,8 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/icon"
         android:layout_centerHorizontal="true"
-        android:text="Babysitter Application"
-        android:textColor="@color/black" />
+        android:text="CareConnect"
+        android:textColor="@color/black"
+        android:fontFamily="@font/font_bold"/>
 
     <!-- Description ScrollView -->
     <ScrollView
@@ -64,6 +65,7 @@
         android:padding="16dp"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:gravity="center" />
+        android:gravity="center"
+        style="@style/mainButtons"/>
 
 </RelativeLayout>

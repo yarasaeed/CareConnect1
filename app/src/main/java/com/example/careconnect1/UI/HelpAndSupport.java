@@ -1,15 +1,14 @@
 package com.example.careconnect1.UI;
-import android.os.Bundle;
-import com.example.careconnect1.R;
-import com.example.careconnect1.Utilities.AppCompatClass;
 
-public class About extends AppCompatClass {
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.careconnect1.R;
+
+public class HelpAndSupport extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        setMethods(getString(R.string.about_us),"");
-
+        setContentView(R.layout.activity_help_and_support);
     }
 }

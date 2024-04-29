@@ -11,8 +11,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.cleanup.Adapters.AllOffersAdapter;
-import com.example.cleanup.Models.OffersModel;
+import com.example.careconnect1.Adapters.AllOffersAdapter;
+import com.example.careconnect1.Model.OffersModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -25,7 +25,7 @@ public class AllOffers extends AppCompatClass {
     private RecyclerView  recyclerViewOffers;
     private MaterialToolbar toolbar;
     private SearchView searchView;
-   // private AllOffersAdapter allOffersAdapter;
+    private AllOffersAdapter allOffersAdapter;
     private ArrayList<OffersModel> arrayListOffers;
 
     @Override
@@ -65,14 +65,14 @@ public class AllOffers extends AppCompatClass {
                     while (i < jsonArray.length()) {
                         JSONObject jSONObject = jsonArray.getJSONObject(i);
                         String offer_id = jSONObject.getString("offer_id");
-                        String o_cleaner_id = jSONObject.getString("o_provider_id");
+                        String o_provider_id = jSONObject.getString("o_provider_id");
                         String description = jSONObject.getString("description");
                         String icon = jSONObject.getString("icon");
                         String price = jSONObject.getString("price");
                         String date = jSONObject.getString("time");
                         String f_name = jSONObject.getJSONObject("provider_info").getString("f_name");
                         String l_name = jSONObject.getJSONObject("provider_info").getString("l_name");
-                        String cleaner_icon = jSONObject.getJSONObject("provider_info").getString("icon");
+                        String provider_icon = jSONObject.getJSONObject("provider_info").getString("icon");
                         String user_role = jSONObject.getJSONObject("provider_info").getString("UserRole");
 
                         String name = "";
@@ -85,10 +85,10 @@ public class AllOffers extends AppCompatClass {
                         i++;
                     }
 
-                  //  allOffersAdapter = new AllOffersAdapter(AllOffers.this, arrayListOffers);
+                    allOffersAdapter = new AllOffersAdapter(AllOffers.this, arrayListOffers);
                     GridLayoutManager layoutManager = new GridLayoutManager(AllOffers.this, 2);
                     recyclerViewOffers.setLayoutManager(layoutManager);
-                   // recyclerViewOffers.setAdapter(allOffersAdapter);
+                    recyclerViewOffers.setAdapter(allOffersAdapter);
                     searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                         @Override
                         public boolean onQueryTextSubmit(String query) {

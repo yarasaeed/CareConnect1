@@ -18,7 +18,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.cleanup.Models.OffersModel;
+import com.example.careconnect1.Model.OffersModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.UI.ProviderOffers;
 import com.google.android.material.imageview.ShapeableImageView;

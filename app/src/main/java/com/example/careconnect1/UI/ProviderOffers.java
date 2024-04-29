@@ -12,7 +12,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.careconnect1.Adapters.ProviderOfferAdapter;
-import com.example.cleanup.Models.OffersModel;
+import com.example.careconnect1.Model.OffersModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.example.careconnect1.Utilities.UserData;

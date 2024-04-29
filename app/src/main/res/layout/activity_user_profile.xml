@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_height="match_parent"
+    tools:context=".UI.UserProfile">
+
+
+    <include layout="@layout/toolbar"/>
+
+
+    <ScrollView
+        android:layout_below="@+id/generalToolbar"
+        android:id="@+id/layout_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/layout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_user"
+                        app:shapeAppearance="@style/circle" />
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/icon"
+                        android:id="@+id/layout_eco"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:id="@+id/icon_eco"/>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/layout_eco"
+                        style="@style/textViewStyleMedium"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:maxLength="30"
+                        android:id="@+id/text_name"/>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/text_name"
+                        style="@style/textViewStyleDetail"
+                        android:textSize="14sp"
+                        android:textAllCaps="true"
+                        android:id="@+id/text_role"/>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_below="@+id/text_role"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="30dp"
+                           android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_height="30dp"
+                            app:srcCompat="@drawable/ic_call"
+                            android:id="@+id/icon_call"/>
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            app:srcCompat="@drawable/ic_email"
+                            android:id="@+id/icon_mail"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:id="@+id/layout_provider"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_card_border"
+                        android:orientation="vertical">
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_margin="5dp"
+                            android:padding="5dp"
+                            android:id="@+id/layout_bio"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                        <TextView
+                            style="@style/textViewStyleMedium"
+                            android:text="@string/about"/>
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            style="@style/textViewStyleDetail"
+                            android:id="@+id/bio"/>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_margin="5dp"
+                            android:padding="5dp"
+                            android:id="@+id/layout_address"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/textViewStyleMedium"
+                                android:text="@string/address"/>
+
+                            <TextView
+                                android:layout_margin="5dp"
+                                style="@style/textViewStyleDetail"
+                                android:id="@+id/address"/>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:id="@+id/layout_services"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/drawable_border"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/textViewStyleMedium"
+                            android:text="@string/services"/>
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="10dp"
+                            app:chipSpacing="5dp"
+                            app:singleSelection="false">
+                        </com.google.android.material.chip.ChipGroup>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/layout_reviews"
+                    android:orientation="vertical">
+                    <TextView
+                        style="@style/textViewStyleMedium"
+                        android:textSize="18sp"
+                        android:layout_margin="10dp"
+                        android:text="@string/books_reviews"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerView"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/text_no_reviews"
+                        style="@style/textViewStyleDetail"
+                        android:layout_gravity="center"
+                        android:text="@string/no_reviews"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="7dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_alignParentEnd="true"
+
+        android:id="@+id/btn_offers"
+        app:lottie_rawRes="@raw/lottie_offer"/>
+
+</RelativeLayout>

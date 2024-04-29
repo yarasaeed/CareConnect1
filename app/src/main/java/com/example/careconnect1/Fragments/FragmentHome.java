@@ -1,5 +1,6 @@
 package com.example.careconnect1.Fragments;
 import static com.example.careconnect1.Utilities.Config.IP;
+import static java.security.Security.getProviders;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,44 +20,37 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-//import com.example.careconnect1.Adapters.AllProvidersAdapter;
+import com.example.careconnect1.Adapters.AllProvidersAdapter;
 import com.example.careconnect1.Adapters.AllOffersAdapter;
 import com.example.careconnect1.Adapters.MainImagesAdapter;
-//import com.example.careconnect1.Model.ProvidersModel;
-import com.example.cleanup.Models.OffersModel;
+import com.example.careconnect1.Model.ProvidersModel;
+import com.example.careconnect1.Model.OffersModel;
 import com.example.careconnect1.R;
-//import com.example.careconnect1.UI.AllProviders;
+import com.example.careconnect1.UI.AllProviders;
 import com.example.careconnect1.UI.AllOffers;
 import com.example.careconnect1.Utilities.LoadingLayout;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
 
-
 public class FragmentHome extends Fragment {
-    private RecyclerView recyclerViewCleaners, recyclerViewOffers;
+    private RecyclerView recyclerViewProviders, recyclerViewOffers;
     private AllOffersAdapter allOffersAdapter;
-   // private AllProvidersAdapter allProvidersAdapter;
-   // private ArrayList<ProvidersModel> arrayListProviders;
+    private AllProvidersAdapter allProvidersAdapter;
+    private ArrayList<ProvidersModel> arrayListProviders;
     private ArrayList<OffersModel> arrayListOffers;
-
     private  Runnable runnable=null;
     private Handler handler;
     private DotsIndicator dotsIndicator;
     private ViewPager viewPager;
-
     final int sliderTime = 3000;
     private FrameLayout   layout_loading;
     public FragmentHome() {
         // Required empty public constructor
     }
-
-
     public static FragmentHome newInstance() {
         return new FragmentHome();
     }
@@ -73,24 +67,24 @@ public class FragmentHome extends Fragment {
 
         View v =  inflater.inflate(R.layout.fragment_home, container, false);
         setInitialize(v);
-        getCleaners();
+        getProviders();
         return v;
     }
 
     private void setInitialize(View v){
         layout_loading = v.findViewById(R.id.layout_loading);
-        recyclerViewCleaners = v.findViewById(R.id.recyclerView);
+        recyclerViewProviders = v.findViewById(R.id.recyclerView);
         recyclerViewOffers = v.findViewById(R.id.recyclerViewOffers);
         TextView show_more_offers = v.findViewById(R.id.show_more_offers);
-        TextView show_more_cleaner = v.findViewById(R.id.show_more_cleaners);
+        TextView show_more_providers = v.findViewById(R.id.show_more_providers);
         handler=new Handler();
-        dotsIndicator =v.findViewById(R.id.activity_welcome);
+        dotsIndicator =v.findViewById(R.id.dotsIndicator);
         viewPager = v.findViewById(R.id.viewPager);
         show_more_offers.setOnClickListener(v1 -> {
             Intent intent = new Intent(getActivity(), AllOffers.class);
             startActivity(intent);
         });
-        show_more_cleaner.setOnClickListener(v1 -> {
+        show_more_providers.setOnClickListener(v1 -> {
             Intent intent = new Intent(getActivity(), AllProviders.class);
             startActivity(intent);
         });
@@ -108,14 +102,14 @@ public class FragmentHome extends Fragment {
                     while (i < jsonArray.length()) {
                         JSONObject jSONObject = jsonArray.getJSONObject(i);
                         String offer_id =jSONObject.getString("offer_id");
-                        String o_cleaner_id =jSONObject.getString("o_provider_id");
+                        String o_provider_id =jSONObject.getString("o_provider_id");
                         String description =jSONObject.getString("description");
                         String icon =jSONObject.getString("icon");
                         String price =jSONObject.getString("price");
                         String date =jSONObject.getString("time");
                         String f_name =jSONObject.getJSONObject("provider_info").getString("f_name");
                         String l_name =jSONObject.getJSONObject("provider_info").getString("l_name");
-                        String cleaner_icon =jSONObject.getJSONObject("provider_info").getString("icon");
+                        String provider_icon =jSONObject.getJSONObject("provider_info").getString("icon");
                         String user_role =jSONObject.getJSONObject("provider_info").getString("UserRole");
 
                         String name = "";
@@ -124,7 +118,7 @@ public class FragmentHome extends Fragment {
                         }else{
                             name = f_name + " " + l_name;
                         }
-                        arrayListOffers.add(new OffersModel(offer_id, icon,description,date,price,o_cleaner_id,name,cleaner_icon));
+                        arrayListOffers.add(new OffersModel(offer_id, icon,description,date,price,o_provider_id,name,provider_icon));
                         i++;
                     }
                     allOffersAdapter = new AllOffersAdapter(getActivity(), arrayListOffers);
@@ -147,9 +141,9 @@ public class FragmentHome extends Fragment {
 
         }
     }
-    private void getCleaners(){
+    private void getProviders(){
         layout_loading.setVisibility(View.VISIBLE);
-        //arrayListProviders = new ArrayList<>();
+        arrayListProviders = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_providers.php?limit=8", response -> {
 
             {
@@ -168,16 +162,16 @@ public class FragmentHome extends Fragment {
                         String f_name =jSONObject.getString("f_name");
                         String l_name =jSONObject.getString("l_name");
                         String bio =jSONObject.getString("bio");
-                        String employee_nb =jSONObject.getString("gender");
-                       // arrayListProviders.add(new ProvidersModel(user_id,f_name,l_name,role,bio,address,email,phone_nb,icon,gender));
+                        String gender =jSONObject.getString("gender");
+                        arrayListProviders.add(new ProvidersModel(user_id,f_name,l_name,role,bio,address,email,phone_nb,icon,gender));
 
                         i++;
                     }
-                    //allProviderAdapter = new AllProviderAdapter(getActivity(), arrayListProviders);
+                    allProvidersAdapter = new AllProvidersAdapter(getActivity(), arrayListProviders);
                     GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
-                    recyclerViewCleaners.setLayoutManager(layoutManager);
-                    //recyclerViewCleaners.setAdapter(allProviderAdapter);
-                    recyclerViewCleaners.setNestedScrollingEnabled(false);
+                    recyclerViewProviders.setLayoutManager(layoutManager);
+                    recyclerViewProviders.setAdapter(allProvidersAdapter);
+                    recyclerViewProviders.setNestedScrollingEnabled(false);
                     loadImages(getActivity());
 
 

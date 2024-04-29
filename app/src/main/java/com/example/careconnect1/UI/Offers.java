@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Offers extends AppCompatClass {
     private RecyclerView recyclerView;
     private ArrayList<OffersModel> arrayList;
-    private String user_id, site_id ;
+    private String user_id ;
     private OfferAdapter adapter;
 
     @Override
@@ -39,7 +39,6 @@ public class Offers extends AppCompatClass {
         Bundle bundle = intent.getExtras();
         if(bundle != null){
             user_id = bundle.getString("user_id","");
-            site_id = bundle.getString("site_id","");
         }
         
     }
@@ -78,7 +77,7 @@ public class Offers extends AppCompatClass {
                     arrayList.add(new OffersModel(id_offer, icon,description,date,price,user_id,used));
                     i++;
                 }
-                adapter = new OfferAdapter(Offers.this, arrayList, site_id);
+                adapter = new OfferAdapter(Offers.this, arrayList);
                 recyclerView.setAdapter(adapter);
             }catch (Exception | Error ignored){
 

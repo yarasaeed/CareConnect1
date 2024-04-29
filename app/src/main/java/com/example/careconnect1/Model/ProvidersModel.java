@@ -1,10 +1,10 @@
 package com.example.careconnect1.Model;
 
 public class ProvidersModel {
-    String cleaner_id, fname, lname, gender, role, bio, address, email, phone,icon;
+    String provider_id, fname, lname, gender, role, bio, address, email, phone,icon;
 
-    public ProvidersModel(String cleaner_id, String fname, String lname, String gender, String role, String bio, String address, String email, String phone, String icon) {
-        this.cleaner_id = cleaner_id;
+    public ProvidersModel(String provider_id, String fname, String lname, String gender, String role, String bio, String address, String email, String phone, String icon) {
+        this.provider_id = provider_id;
         this.fname = fname;
         this.lname = lname;
         this.gender = gender;
@@ -17,8 +17,8 @@ public class ProvidersModel {
     }
 
 
-    public String getCleaner_id() {
-        return cleaner_id;
+    public String getProvider_id() {
+        return provider_id;
     }
 
     public String getFname() {

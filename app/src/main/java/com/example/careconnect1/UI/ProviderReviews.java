@@ -1,5 +1,4 @@
 package com.example.careconnect1.UI;
-//when company views all reviews or reviews in profile
 
 import static com.example.careconnect1.Utilities.Config.IP;
 
@@ -24,7 +23,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Reviews extends AppCompatClass {
+public class ProviderReviews extends AppCompatClass {
     private RecyclerView recyclerView;
 
     private ArrayList<ReviewsModel> arrayList;
@@ -36,7 +35,7 @@ public class Reviews extends AppCompatClass {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews);
+        setContentView(R.layout.activity_provider_reviews);
         setMethods("Reviews", "");
     }
 
@@ -44,7 +43,7 @@ public class Reviews extends AppCompatClass {
     public void setInitialize() {
         super.setInitialize();
         recyclerView = findViewById(R.id.recyclerView);
-        userData = new UserData(Reviews.this);
+        userData = new UserData(ProviderReviews.this);
     }
 
     @Override
@@ -61,13 +60,13 @@ public class Reviews extends AppCompatClass {
 
     public void getReviews(){
         arrayList = new ArrayList<>();
-            @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_provider.php?center_id="+ userData.getId(), response -> {
+            @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_cleaner.php?cleaner_id="+ userData.getId(), response -> {
                 int i = 0;
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
                     if(jsonArray.length() == 0){
-                        Toast.makeText(Reviews.this,   "There are no reviews", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProviderReviews.this,   "There are no reviews", Toast.LENGTH_SHORT).show();
                     }
 
                     while (i < jsonArray.length()) {
@@ -83,7 +82,7 @@ public class Reviews extends AppCompatClass {
                         arrayList.add(new ReviewsModel(id, book_id,user_id,cleaner_id, text,customer_name,customer_icon,date));
                         i++;
                     }
-                    adapter = new ProviderReviewsAdapter(Reviews.this, arrayList, false);
+                    adapter = new ProviderReviewsAdapter(ProviderReviews.this, arrayList, false);
                     recyclerView.setAdapter(adapter);
                 }catch (Exception | Error ignored){
 
@@ -92,7 +91,7 @@ public class Reviews extends AppCompatClass {
             }, error -> {
 
             });
-            RequestQueue requestQueue = Volley.newRequestQueue(Reviews.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(ProviderReviews.this);
             requestQueue.add(stringRequest);
         }
 

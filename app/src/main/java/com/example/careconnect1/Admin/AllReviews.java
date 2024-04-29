@@ -13,7 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.careconnect1.Adapters.CleanerReviewAdapter;
+import com.example.careconnect1.Adapters.ProviderReviewsAdapter;
 import com.example.careconnect1.Model.ReviewsModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
@@ -30,7 +30,7 @@ public class AllReviews extends AppCompatClass {
 
     private String user_id= "";
 
-    private CleanerReviewAdapter adapter;
+    private ProviderReviewsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class AllReviews extends AppCompatClass {
     public void getReviews(){
         arrayList = new ArrayList<>();
 
-            @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "select_reviews_where_customer.php?customer_id="+ user_id, response -> {
+            @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IPADMIN + "select_reviews_where_parent.php?parent_id="+ user_id, response -> {
                 int i = 0;
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -88,7 +88,7 @@ public class AllReviews extends AppCompatClass {
                         i++;
                     }
 
-                    adapter = new CleanerReviewAdapter(AllReviews.this, arrayList, true);
+                    adapter = new ProviderReviewsAdapter(AllReviews.this, arrayList, true);
                     recyclerView.setAdapter(adapter);
                 }catch (Exception | Error ignored){
                     Toast.makeText(this, ignored.toString(), Toast.LENGTH_SHORT).show();

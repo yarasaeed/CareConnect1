@@ -5,7 +5,10 @@
     android:layout_height="match_parent"
     android:theme="@style/Theme.MaterialComponents.Light"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="start">
+    android:layout_gravity="start"
+    >
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -13,6 +16,9 @@
             android:id="@+id/user_layout"
             android:layout_width="match_parent"
             android:layout_height="150dp">
+
+
+
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/icon"
@@ -80,6 +86,8 @@
                 android:gravity="center"
                 android:text="@string/login_now"
                 android:layout_centerInParent="true"/>
+
+
         </RelativeLayout>
 
         <com.google.android.material.navigation.NavigationView
@@ -99,4 +107,6 @@
             app:subheaderTextAppearance="@style/textViewStyleTitle" />
 
     </RelativeLayout>
+
+
 </com.google.android.material.navigation.NavigationView>

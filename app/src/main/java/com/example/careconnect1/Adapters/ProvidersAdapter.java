@@ -1,6 +1,5 @@
 package com.example.careconnect1.Adapters;
 
-import static com.example.careconnect1.Utilities.Config.OFFER_IMAGES_DIR;
 import static com.example.careconnect1.Utilities.Config.USER_IMAGES_DIR;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,87 +14,103 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.careconnect1.Model.ProvidersModel;
-import com.example.careconnect1.Model.OffersModel;
 import com.example.careconnect1.R;
-import com.example.careconnect1.UI.AllOffers;
-import com.example.careconnect1.UI.Offers;
+import com.example.careconnect1.UI.Booking;
 import com.example.careconnect1.UI.UserProfile;
+import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class AllOffersAdapter extends RecyclerView.Adapter<AllOffersAdapter.MyHolder> implements Filterable {
-    private final ArrayList<OffersModel> list;
-    private final ArrayList<OffersModel> listFull;
+public class ProvidersAdapter extends RecyclerView.Adapter<ProvidersAdapter.MyHolder> implements Filterable {
+    private final ArrayList<ProvidersModel> list;
+    private final ArrayList<ProvidersModel> listFull;
     private final Context context;
+    private UserData userData;
 
-    public AllOffersAdapter(Context activity, ArrayList<OffersModel> list) {
+    public ProvidersAdapter(Context activity, ArrayList<ProvidersModel> list) {
         this.list = list;
         context = activity;
         listFull =new ArrayList<>(list);
+        userData = new UserData(context);
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder {
-        private final TextView name, description, price;
+        private final TextView name;
+        private final TextView role;
+        private final TextView address;
         private final MaterialCardView cardView;
-        private final ShapeableImageView icon, icon_offer;
+        private final ShapeableImageView icon, icon_book;
 
-
-        //holder is used to access and update the views within each item of the RecyclerView.
         public MyHolder(View v) {
             super(v);
             name = v.findViewById(R.id.name);
-            description = v.findViewById(R.id.description);
-            price = v.findViewById(R.id.price);
+            role = v.findViewById(R.id.role);
             icon = v.findViewById(R.id.icon);
-            icon_offer = v.findViewById(R.id.icon_offer);
+            address = v.findViewById(R.id.address);
             cardView = v.findViewById(R.id.cardView);
-
-
+            icon_book = v.findViewById(R.id.icon_book);
         }
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_all_offers, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_center, parent, false);
         return new MyHolder(v);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
-    //sed to set the values and define click listeners for the corresponding views in the item layout.
     public void onBindViewHolder(@NonNull final MyHolder holder, @SuppressLint("RecyclerView") final int position) {
-        OffersModel currentItem = list.get(position);
-        holder.name.setText(currentItem.getProvider_name());
-        holder.price.setText("USD "+currentItem.getPrice());
-        holder.description.setText(currentItem.getDescription());
-        // Load the provider's icon using Glide library
+        ProvidersModel currentItem = list.get(position);
+        holder.role.setText(currentItem.getRole().toUpperCase(Locale.ROOT));
+        if(userData.getId().equals("")){
+            holder.icon_book.setVisibility(View.GONE);
+        }else{
+            if(userData.getRole().equals("parent")){
+                holder.icon_book.setVisibility(View.VISIBLE);
+            }else{
+                holder.icon_book.setVisibility(View.GONE);
+            }
+        }
+        if(currentItem.getRole().toLowerCase(Locale.ROOT).equals("center")){
+            holder.name.setText(currentItem.getFname() );
+            holder.name.setVisibility(View.VISIBLE);
+        }else{
+            holder.name.setVisibility(View.GONE);
+            holder.name.setText(currentItem.getFname() + " " + currentItem.getLname());
+        }
+
+        if(!currentItem.getAddress().trim().equals("")){
+
+            holder.address.setText(currentItem.getAddress());
+
+            holder.address.setVisibility(View.VISIBLE);
+        }else {
+            holder.address.setVisibility(View.GONE);
+        }
         Glide.with(context).load(USER_IMAGES_DIR +
-                        currentItem.getProvider_icon())
+                        currentItem.getIcon())
                 .error(R.drawable.ic_user)
                 .into(holder.icon);
-        // Load the offer icon using Glide library
-        Glide.with(context).load(OFFER_IMAGES_DIR +
-                        currentItem.getIcon())
-                .error(R.drawable.ic_image_broke)
-                .into(holder.icon_offer);
 
-        // Open the user profile when the name is clicked
-        holder.name.setOnClickListener(v -> {
+        holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, UserProfile.class);
-            intent.putExtra("site_id", "");
             intent.putExtra("user_id", list.get(position).getProvider_id());
             intent.putExtra("offer_id", "");
             intent.putExtra("type", "service");
             context.startActivity(intent);
         });
-        // Open the offers activity when the card is clicked
-        holder.cardView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, Offers.class);
-            intent.putExtra("user_id", list.get(position).getProvider_id());
-            intent.putExtra("site_id", "");
+
+        holder.icon_book.setOnClickListener(v -> {
+            Intent intent = new Intent(context, Booking.class);
+            intent.putExtra("provider_id", list.get(position).getProvider_id());
+            intent.putExtra("offer_id", "");
+            intent.putExtra("type", "service");
+            intent.putExtra("amount", 0.0);
             context.startActivity(intent);
         });
 
@@ -105,9 +120,6 @@ public class AllOffersAdapter extends RecyclerView.Adapter<AllOffersAdapter.MyHo
     public int getItemCount() {
         return list.size();
     }
-
-
-
     @Override
     public Filter getFilter() {
         return filter;
@@ -116,18 +128,18 @@ public class AllOffersAdapter extends RecyclerView.Adapter<AllOffersAdapter.MyHo
     private final Filter filter =new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-            List<OffersModel> list1=new ArrayList<>();
+            List<ProvidersModel> list1=new ArrayList<>();
             if(charSequence==null || charSequence.length()==0){
                 list1.addAll(listFull);
             }
             else {
                 String filterPattern=charSequence.toString().toLowerCase().trim();
-                for (OffersModel item: listFull){
-                    if(   // Filter the list based on the description, provider name, date, and price
-                            item.getDescription().toLowerCase().contains(filterPattern)|
-                                    item.getProvider_name().toLowerCase().contains(filterPattern)|
-                                    item.getDate().toLowerCase().contains(filterPattern)|
-                                    item.getPrice().toLowerCase().contains(filterPattern) ){
+                for (ProvidersModel item: listFull){
+                    if(
+                            item.getAddress().toLowerCase().contains(filterPattern)|
+                                    item.getFname().toLowerCase().contains(filterPattern)|
+                                    item.getLname().toLowerCase().contains(filterPattern)|
+                                    item.getRole().toLowerCase().contains(filterPattern) ){
                         list1.add(item);
                     }
                 }
@@ -141,9 +153,9 @@ public class AllOffersAdapter extends RecyclerView.Adapter<AllOffersAdapter.MyHo
         @Override
         @SuppressWarnings("unchecked")
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            try {  // Update the list with the filtered results
+            try {
                 list.clear();
-                list.addAll((ArrayList<OffersModel>)filterResults.values);
+                list.addAll((ArrayList<ProvidersModel>)filterResults.values);
                 notifyDataSetChanged();
             } catch (Exception e) {
                 e.printStackTrace();

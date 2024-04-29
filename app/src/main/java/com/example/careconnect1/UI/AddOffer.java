@@ -22,7 +22,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.careconnect1.FileUpload.ImageUpload;
+import com.example.careconnect1.FileUpload.ImageUploaderClass;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.example.careconnect1.Utilities.UserData;
@@ -139,8 +139,6 @@ public class AddOffer extends AppCompatClass {
         RequestQueue requestQueue = Volley.newRequestQueue(AddOffer.this);
         requestQueue.add(stringRequest);
     }
-
-
     //Settings to choose image from gallery
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -172,9 +170,6 @@ public class AddOffer extends AppCompatClass {
             }
         }
     }
-
-
-
     public void checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ActivityCompat.checkSelfPermission(AddOffer.this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
@@ -195,12 +190,11 @@ public class AddOffer extends AppCompatClass {
 
     private void uploadImage(){
         String filePath = getRealPath(this, uriImage);
-        ImageUpload.uploadImage(filePath, nameOfImage, "images/offers", new ImageUpload.onSuccessfulTask() {
+        ImageUploaderClass.uploadImage(filePath, nameOfImage, "images/offers", new ImageUploaderClass.onSuccessfulTask(){
             @Override
             public void onSuccess() {
 
             }
-
             @Override
             public void onFailed(String error) {
 

@@ -31,13 +31,13 @@ import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;
 
-public class CenterReviewsAdapter extends RecyclerView.Adapter<CenterReviewsAdapter.MyHolder>  {
+public class ProviderReviewsAdapter extends RecyclerView.Adapter<ProviderReviewsAdapter.MyHolder>  {
     private final ArrayList<ReviewsModel> list;
     private final Context context;
 
     private boolean showDelete;
 
-    public CenterReviewsAdapter(Context activity, ArrayList<ReviewsModel> list, boolean showDelete) {
+    public ProviderReviewsAdapter(Context activity, ArrayList<ReviewsModel> list, boolean showDelete) {
         this.list = list;
         context = activity;
         this.showDelete = showDelete;
@@ -89,7 +89,6 @@ public class CenterReviewsAdapter extends RecyclerView.Adapter<CenterReviewsAdap
 
         holder.name.setOnClickListener(v -> {
             Intent intent = new Intent(context, UserProfile.class);
-            intent.putExtra("site_id", "");
             intent.putExtra("user_id", list.get(position).getUser_id());
             intent.putExtra("offer_id", "");
             intent.putExtra("type", "service");

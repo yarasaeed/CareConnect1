@@ -129,7 +129,7 @@
                 android:orientation="vertical">
                 <TextView
                     style="@style/textViewStyleMedium"
-                    android:text="expiration_date"
+                    android:text="@string/expiration_date"
                     android:textAllCaps="true"
                     android:textSize="18sp"
                     android:textColor="@color/silver" />

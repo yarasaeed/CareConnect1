@@ -1,19 +1,19 @@
-package com.example.cleanup.Models;
+package com.example.careconnect1.Model;
 
 public class OffersModel {
-    String id, icon, description, date, price, cleaner_id;
+    String id, icon, description, date, price, provider_id;
 
-    String  cleaner_name, cleaner_icon, used;
+    String  provider_name, provider_icon, used;
 
-    public OffersModel(String id, String icon, String description, String date, String price, String cleaner_id, String cleaner_name, String cleaner_icon) {
+    public OffersModel(String id, String icon, String description, String date, String price, String provider_id, String provider_name, String provider_icon) {
         this.id = id;
         this.icon = icon;
         this.description = description;
         this.date = date;
         this.price = price;
-        this.cleaner_id = cleaner_id;
-        this.cleaner_name = cleaner_name;
-        this.cleaner_icon = cleaner_icon;
+        this.provider_id = provider_id;
+        this.provider_name = provider_name;
+        this.provider_icon = provider_icon;
 
     }
 
@@ -21,22 +21,22 @@ public class OffersModel {
         return used;
     }
 
-    public String getCleaner_name() {
-        return cleaner_name;
+    public String getProvider_name() {
+        return provider_name;
     }
 
-    public String getCleaner_icon() {
-        return cleaner_icon;
+    public String getProvider_icon() {
+        return provider_icon;
     }
 
-    public OffersModel(String id, String icon, String description, String date, String price, String cleaner_id, String used) {
+    public OffersModel(String id, String icon, String description, String date, String price, String provider_id, String used) {
         this.id = id;
         this.icon = icon;
         this.used = used;
         this.description = description;
         this.date = date;
         this.price = price;
-        this.cleaner_id = cleaner_id;
+        this.provider_id = provider_id;
     }
 
     public String getId() {
@@ -59,7 +59,7 @@ public class OffersModel {
         return price;
     }
 
-    public String getCleaner_id() {
-        return cleaner_id;
+    public String getProvider_id() {
+        return provider_id;
     }
 }

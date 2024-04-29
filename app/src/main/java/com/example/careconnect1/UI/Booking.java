@@ -2,7 +2,6 @@ package com.example.careconnect1.UI;
 
 import static com.example.careconnect1.Utilities.Config.IP;
 import static com.example.careconnect1.Utilities.Config.USER_IMAGES_DIR;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.LinearLayoutCompat;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -33,10 +30,8 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,7 +45,7 @@ import java.util.Random;
 
 public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     private ChipGroup chipGroup;
-    private String site_id, center_id, type, offer_id, selected_services = "";
+    private String center_id, type, offer_id, selected_services = "";
     private StringBuilder stringBuilder;
     private boolean isDateSelected = false;
     private String [] disabled_dates ;
@@ -136,17 +131,14 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
         });
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId){
-                case R.id.radio_cash:
-                    layout_card.setVisibility(View.GONE);
-                    payment_type = PaymentMethod.CASH.toString();
-                    break;
-                case R.id.radio_card:
-                    layout_card.setVisibility(View.VISIBLE);
-                    break;
-
+            if (checkedId == R.id.radio_cash) {
+                layout_card.setVisibility(View.GONE);
+                payment_type = PaymentMethod.CASH.toString();
+            } else if (checkedId == R.id.radio_card) {
+                layout_card.setVisibility(View.VISIBLE);
             }
         });
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -265,7 +257,7 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
                 map.put("services_ids",selected_services);
                 map.put("user_id",userData.getId());
                 map.put("offer_id",offer_id);
-                map.put("cleaner_id", center_id);
+                map.put("center_id", center_id);
                 map.put("payment_type",payment_type);
                 map.put("payment_info_id",payment_info_id);
                 map.put("amount",""+amount);
@@ -282,7 +274,7 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
 
     private void getUserData() {
 
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_user.php?id="+ cleaner_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_user.php?id="+ center_id, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -292,7 +284,7 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
 
                     String disabled_date_string = jSONObject.getString("disabled_date").trim();
                      disabled_dates = disabled_date_string.split(",");
-                     if(jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("company")){
+                     if(jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("center")){
                          name.setText(jSONObject.getString("f_name"));
                      }else{
                          name.setText(jSONObject.getString("f_name") + " " + jSONObject.getString("l_name"));
@@ -323,7 +315,7 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
 
     private void getServices(){
         service_prices = new ArrayList<>();
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_services_where.php?user_id="+ cleaner_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_services_where.php?user_id="+ center_id, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);

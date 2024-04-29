@@ -1,8 +1,6 @@
 package com.example.careconnect1.UI;
-
 import static com.example.careconnect1.Utilities.Config.IP;
 import static com.example.careconnect1.Utilities.Config.USER_IMAGES_DIR;
-
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -11,13 +9,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -29,16 +25,16 @@ import com.example.careconnect1.Admin.AdminActivity;
 import com.example.careconnect1.Fragments.FragmentBookingParent;
 import com.example.careconnect1.Fragments.FragmentBookingProvider;
 import com.example.careconnect1.Fragments.FragmentHome;
+import com.example.careconnect1.Fragments.FragmentProfile;
+import com.example.careconnect1.Fragments.FragmentSupport;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
 import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.navigation.NavigationView;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.Locale;
 
 public class MainActivity extends AppCompatClass {
@@ -70,86 +66,77 @@ public class MainActivity extends AppCompatClass {
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
+
         navigationView.setNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()){
-
-                case R.id.nav_profile:
-                    bottomNavigationView.setSelectedItemId(R.id.profile);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    return true;
-
-                case R.id.nav_booking:
-                    bottomNavigationView.setSelectedItemId(R.id.booking);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    return true;
-
-                case R.id.nav_help:
-                    bottomNavigationView.setSelectedItemId(R.id.support);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                    return true;
-
-                case R.id.nav_rate:
-                    Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
-                    Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                    goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                            Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                            Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-                    try {
-                        startActivity(goToMarket);
-
-                    } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                    }
-                    return true;
-                case R.id.nav_share:
-                    Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                    sharingIntent.setType("text/plain");
-                    String shareBody = "https://play.google.com/store/apps/details?id="+getPackageName();
-                    sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Lets find providers");
-                    sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                    startActivity(Intent.createChooser(sharingIntent, "Share via"));
-                    return true;
-                case R.id.nav_more:
-                    Uri url=Uri.parse("http://play.google.com/store/search?q=pub:providers");
-                    Intent launch=new Intent(Intent.ACTION_VIEW,url);
-                    startActivity(launch);
-
-                    return true;
-                case R.id.nav_about:
-                    openActivity(About.class);
-                    return true;
-
-                case R.id.nav_admin:
-                    openActivity(AdminActivity.class);
-                    return true;
-
-                case R.id.nav_payments:
-                    openActivity(AllPayments.class);
-                    return true;
-
-                case R.id.nav_policy:
-                    openActivity(Policy.class);
-                    return true;
-
-                case R.id.nav_reviews:
-                    if(!user_role.equals("customer")){
-                        openActivity(Reviews.class);
-                    }
-                    return true;
-
-                case R.id.nav_offers:
-                    if(user_role.equals("parent")){
-                        openActivity(AllOffers.class);
-                    }else{
-                        openActivity(ProviderOffers.class);
-                    }
-                    return true;
-
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_profile) {
+                bottomNavigationView.setSelectedItemId(R.id.profile);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else if (itemId == R.id.nav_booking) {
+                bottomNavigationView.setSelectedItemId(R.id.booking);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else if (itemId == R.id.nav_help) {
+                bottomNavigationView.setSelectedItemId(R.id.support);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            } else if (itemId == R.id.nav_rate) {
+                Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
+                return true;
+            } else if (itemId == R.id.nav_share) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "https://play.google.com/store/apps/details?id="+getPackageName();
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Lets find providers");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                return true;
+            } else if (itemId == R.id.nav_more) {
+                Uri url = Uri.parse("http://play.google.com/store/search?q=pub:providers");
+                Intent launch = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(launch);
+                return true;
+            } else if (itemId == R.id.nav_about) {
+                openActivity(About.class);
+                return true;
+            } else if (itemId == R.id.nav_admin) {
+                openActivity(AdminActivity.class);
+                return true;
+            } else if (itemId == R.id.nav_payments) {
+                openActivity(AllPayments.class);
+                return true;
+            } else if (itemId == R.id.nav_policy) {
+                openActivity(Policy.class);
+                return true;
+            } else if (itemId == R.id.nav_reviews) {
+                if (!user_role.equals("customer")) {
+                    openActivity(Reviews.class);
+                }
+                return true;
+            } else if (itemId == R.id.nav_offers) {
+                if (user_role.equals("parent")) {
+                    openActivity(AllOffers.class);
+                } else {
+                    openActivity(ProviderOffers.class);
+                }
+                return true;
             }
             return false;
         });
     }
+
+
 
     @Override
     public void setInitialize() {
@@ -329,9 +316,6 @@ public class MainActivity extends AppCompatClass {
         requestQueue.add(stringRequest);
 
     }
-
-
-
 
     public void openActivity(Class<?> activity){
         Intent intent=new Intent(MainActivity.this,activity);

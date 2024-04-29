@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    tools:context=".UI.AddService">
+
+    <include layout="@layout/toolbar"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/generalToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/textInputLayout"
+        android:hint="Service name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_edit"
+            android:inputType="text"
+            style="@style/editTextLayout" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/textInputLayout"
+        app:suffixText="$"
+        app:suffixTextAppearance="@color/silver"
+        android:hint="Service price">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/price_edit"
+            android:inputType="numberDecimal"
+            style="@style/editTextLayout" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        style="@style/mainButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:text="Add" />
+</RelativeLayout>

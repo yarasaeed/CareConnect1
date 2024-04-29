@@ -11,7 +11,6 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.careconnect1.R;
-import com.example.careconnect1.UI.BookingDetailsActivity;
 
 public class CustomAdapter extends ArrayAdapter<String> {
     private final Activity context;
