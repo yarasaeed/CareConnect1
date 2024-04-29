@@ -103,8 +103,7 @@ public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSe
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null){
-            center_id = bundle.getString("cleaner_id","");
-            site_id = bundle.getString("site_id","");
+            center_id = bundle.getString("center_id","");
             type = bundle.getString("type","");
             offer_id = bundle.getString("offer_id","");
             amount = bundle.getDouble("amount",0.0);

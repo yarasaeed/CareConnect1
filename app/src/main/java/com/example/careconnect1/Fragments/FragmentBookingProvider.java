@@ -16,7 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.careconnect1.Adapters.CenterBookingAdapter;
+import com.example.careconnect1.Adapters.providerrBookingAdapter;
 import com.example.careconnect1.Interface.FragmentRefresh;
 import com.example.careconnect1.Model.BookingModel;
 import com.example.careconnect1.Model.ServiceModel;
@@ -37,7 +37,7 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
 
     private ArrayList<BookingModel> arrayList;
 
-    private CenterBookingAdapter adapter;
+    private providerrBookingAdapter adapter;
 
     public FragmentBookingProvider() {
     }
@@ -150,7 +150,7 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
                     i++;
                 }
 
-                adapter = new CenterBookingAdapter(getActivity(), arrayList, this);
+                adapter = new providerrBookingAdapter(getActivity(), arrayList, this);
                 recyclerView.setAdapter(adapter);
 
 

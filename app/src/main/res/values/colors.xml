@@ -9,6 +9,7 @@
     <color name="transparent">#00000000</color>
     <color name="mainBackground">#FFFFFFFF</color>
     <color name="red">#FFff0000</color>
+    <color name="status">#FFf7f7f7</color>
 
     <color name="silver4">#FF5e797d</color>
 </resources>
