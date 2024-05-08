@@ -40,13 +40,13 @@ import com.google.android.material.imageview.ShapeableImageView;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class providerrBookingAdapter extends RecyclerView.Adapter<providerrBookingAdapter.MyHolder>  {
+public class ProviderBookingAdapter extends RecyclerView.Adapter<ProviderBookingAdapter.MyHolder>  {
     private final ArrayList<BookingModel> list;
     private final Activity context;
     FragmentRefresh fragmentRefresh; //implementing the FragmentRefresh interface.
 
     private AlertDialog alertDialog;
-    public providerrBookingAdapter(Activity activity, ArrayList<BookingModel> list, FragmentRefresh fragmentRefresh) {
+    public ProviderBookingAdapter(Activity activity, ArrayList<BookingModel> list, FragmentRefresh fragmentRefresh) {
         this.list = list;
         context = activity;
         this.fragmentRefresh = fragmentRefresh;

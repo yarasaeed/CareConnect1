@@ -19,7 +19,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:text="@string/add_new_offer"
+        android:text="Add new offer"
         app:drawableStartCompat="@drawable/ic_add_service" />
 
     <androidx.recyclerview.widget.RecyclerView

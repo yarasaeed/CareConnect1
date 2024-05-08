@@ -4,6 +4,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:closeIconEnabled="true"
-    app:closeIconTint="@color/mainColor"
+    app:closeIconTint="@color/purple"
     style="@style/Widget.MaterialComponents.Chip.Action">
 </com.google.android.material.chip.Chip>

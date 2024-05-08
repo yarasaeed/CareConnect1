@@ -53,7 +53,7 @@
             style="@style/textViewStyleDetail"
             android:layout_gravity="center"
             android:textSize="14sp"
-            android:text="@string/role"/>
+            android:text="Role"/>
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_below="@+id/layout_1"
             android:layout_width="match_parent"

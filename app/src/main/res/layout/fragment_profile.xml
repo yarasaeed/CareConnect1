@@ -57,9 +57,9 @@
                     </RelativeLayout>
 
                     <TextView
-                       android:layout_centerHorizontal="true"
+                        android:layout_centerHorizontal="true"
                         android:layout_below="@+id/layout_2"
-                       style="@style/textViewStyleTitle"
+                        style="@style/textViewStyleTitle"
                         android:singleLine="true"
                         android:ellipsize="marquee"
                         android:id="@+id/text_name"/>
@@ -107,15 +107,15 @@
                         android:layout_toStartOf="@+id/icon_save"
                         android:layout_below="@+id/text_role"
                         app:srcCompat="@drawable/ic_edit"
-                     />
-               <com.google.android.material.imageview.ShapeableImageView
-                   android:layout_width="25dp"
-                   android:layout_height="25dp"
-                   android:layout_marginEnd="15dp"
-                   android:id="@+id/icon_save"
-                   android:layout_below="@+id/text_role"
-                   app:srcCompat="@drawable/ic_save"
-                   android:layout_alignParentEnd="true"/>
+                        />
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="15dp"
+                        android:id="@+id/icon_save"
+                        android:layout_below="@+id/text_role"
+                        app:srcCompat="@drawable/ic_save"
+                        android:layout_alignParentEnd="true"/>
                 </RelativeLayout>
 
 
@@ -181,7 +181,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/address_edit"
                         style="@style/editTextLayout"
-                        android:hint="@string/address"
+                        android:hint="Address"
                         android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -192,17 +192,14 @@
                     android:id="@+id/layout_cleaner">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/gender_layout"
+                        android:id="@+id/provider_layout"
                         style="@style/textInputLayout">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/gender_edit"
                             style="@style/editTextLayout"
-
                             android:hint="Gender"
-                            android:digits="0123456789"
-                            android:maxLength="3"
-                            android:inputType="number" />
+                            android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -210,14 +207,15 @@
                         android:gravity="top"
                         android:layout_height="150dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/bio_edit"
-                        style="@style/editTextLayout"
-                        android:layout_height="140dp"
-                        android:gravity="top"
-                        android:hint="@string/bio"
-                        android:inputType="textMultiLine" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/bio_edit"
+                            style="@style/editTextLayout"
+                            android:layout_height="140dp"
+                            android:gravity="top"
+                            android:hint="Bio"
+                            android:inputType="textMultiLine" />
                     </com.google.android.material.textfield.TextInputLayout>
+
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
@@ -240,12 +238,17 @@
                             android:layout_gravity="center"
                             style="@style/textViewStyleTitle"
                             android:id="@+id/btn_add_service"
-                            android:text="@string/add_new_service"
+                            android:text="Add new service"
                             android:gravity="center"
                             app:drawableStartCompat="@drawable/ic_add_service" />
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="100dp"/>

@@ -52,9 +52,9 @@ public class AllUsers extends AppCompatClass {
     @Override
     public void setActions() {
         super.setActions();
-        toolbar.inflateMenu(R.menu.menu_search);
-        MenuItem item = toolbar.getMenu().findItem(R.id.item_search);
-        searchView = (SearchView) item.getActionView();
+        //toolbar.inflateMenu(R.menu.menu_search);
+       // MenuItem item = toolbar.getMenu().findItem(R.id.item_search);
+        //searchView = (SearchView) item.getActionView();
         getUsers();
 
     }
@@ -85,7 +85,7 @@ public class AllUsers extends AppCompatClass {
                         }else {
                             name = fname + lname;
                         }
-                        arrayList.add(new UsersModel(user_id, name, role, phone, email,address,"",icon));
+                        arrayList.add(new UsersModel(user_id, name, role, phone, email,address,icon));
                         i++;
                     }
 

@@ -12,7 +12,7 @@
     <TextView
         style="@style/textViewStyleMedium"
         android:layout_margin="10dp"
-        android:text="@string/add_new_card"
+        android:text="Add new card"
         android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -63,14 +63,14 @@
         <TextView
             android:layout_margin="5dp"
             style="@style/textViewStyleMedium"
-            android:text="@string/card_number"
+            android:text="Card number"
             android:textAllCaps="true"
             android:textSize="20sp"
             android:textColor="@color/silver" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:id="@+id/layout_number"
-            android:hint="@string/_1234_xxxx_xxxx_7890"
+            android:hint="1234 XXXX XXXX 7890"
             app:endIconDrawable="@drawable/ic_credit_card"
             app:endIconTint="@null"
             android:layout_margin="5dp"
@@ -92,7 +92,7 @@
 
         <TextView
             style="@style/textViewStyleMedium"
-            android:text="@string/card_name"
+            android:text="Card name"
             android:textAllCaps="true"
             android:textSize="20sp"
             android:layout_margin="5dp"
@@ -100,7 +100,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_margin="5dp"
-            android:hint="@string/username"
+            android:hint="Username"
             app:endIconDrawable="@drawable/ic_person"
             app:endIconTint="@color/silver"
             app:endIconMode="custom"
@@ -129,7 +129,7 @@
                 android:orientation="vertical">
                 <TextView
                     style="@style/textViewStyleMedium"
-                    android:text="@string/expiration_date"
+                    android:text="Expiration date"
                     android:textAllCaps="true"
                     android:textSize="18sp"
                     android:textColor="@color/silver" />
@@ -141,7 +141,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="0dp"
                         android:layout_weight="1.5"
-                        android:hint="@string/mm"
+                        android:hint="MM"
                         app:boxStrokeColor="@color/box_color"
                         app:hintTextColor="@color/purple"
                         android:layout_height="wrap_content">
@@ -168,7 +168,7 @@
                         android:layout_weight="1.4"
                         app:boxStrokeColor="@color/box_color"
                         app:hintTextColor="@color/purple"
-                        android:hint="@string/yy"
+                        android:hint="YY"
                         android:layout_height="wrap_content">
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
@@ -194,13 +194,13 @@
                 <TextView
                     style="@style/textViewStyleMedium"
                     android:layout_width="match_parent"
-                    android:text="@string/cvc"
+                    android:text="CVC"
                     android:textAllCaps="true"
                     android:textSize="18sp"
                     android:textColor="@color/silver" />
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:hint="@string/xxx"
+                    android:hint="XXX"
                     app:boxStrokeColor="@color/box_color"
                     app:hintTextColor="@color/black"
                     android:layout_height="wrap_content">
@@ -222,7 +222,7 @@
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/save"
+            android:text="Save"
             android:textAllCaps="true"
             android:textColor="@color/white"
             app:backgroundTint="@color/black"

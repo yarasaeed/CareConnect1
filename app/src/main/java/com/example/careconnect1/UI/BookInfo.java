@@ -121,10 +121,10 @@ public class BookInfo extends AppCompatClass {
                     String parent_email = jSONObject.getJSONObject("user_info").getString("email");
                     String parent_id = jSONObject.getJSONObject("user_info").getString("user_id");
                     String ic_cu = jSONObject.getJSONObject("user_info").getString("icon");
-                    String customer_phone = jSONObject.getJSONObject("user_info").getString("phone_nb");
+                    String parent_phone = jSONObject.getJSONObject("user_info").getString("phone_nb");
 
-                    String cleaner_email = jSONObject.getJSONObject("center_info").getString("email");
-                    String cleaner_phone = jSONObject.getJSONObject("center_info").getString("phone_nb");
+                    String provider_email = jSONObject.getJSONObject("center_info").getString("email");
+                    String provider_phone = jSONObject.getJSONObject("center_info").getString("phone_nb");
                     String provider_name ;
                     if(jSONObject.getJSONObject("center_info").getString("UserRole").toLowerCase(Locale.ROOT).equals("center")){
                         provider_name = jSONObject.getJSONObject("center_info").getString("f_name");
@@ -161,8 +161,8 @@ public class BookInfo extends AppCompatClass {
                             String id =  jb.getString("ServiceID");
                             String name =  jb.getString("ServiceName");
                             String price =  jb.getString("ServicePrice");
-                            String s_cleaner_id =  jb.getString("s_cleaner_id");
-                            arrayService.add(new ServiceModel(id, name, price,s_cleaner_id));
+                            String s_provider_id =  jb.getString("s_provider_id");
+                            arrayService.add(new ServiceModel(id, name, price,s_provider_id));
                             j++;
                         }
                     }
@@ -201,18 +201,18 @@ public class BookInfo extends AppCompatClass {
                     });
                     icon_call_provider.setOnClickListener(view -> {
                         Intent intent=new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:"+cleaner_phone+""));
+                        intent.setData(Uri.parse("tel:"+provider_phone+""));
                         startActivity(intent);
                     });
                     icon_call_parent.setOnClickListener(view -> {
                         Intent intent=new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:"+customer_phone+""));
+                        intent.setData(Uri.parse("tel:"+parent_phone+""));
                         startActivity(intent);
                     });
 
                     icon_email_parent.setOnClickListener(v -> {
                         Intent intent = new Intent(Intent.ACTION_SENDTO);
-                        intent.setData(Uri.parse("mailto:"+provider_email));
+                        intent.setData(Uri.parse("mailto:"+parent_email));
                         intent.putExtra(Intent.EXTRA_EMAIL, parent_email);
                         intent.putExtra(Intent.EXTRA_SUBJECT, "");
                         startActivity(intent);
@@ -221,8 +221,8 @@ public class BookInfo extends AppCompatClass {
 
                     icon_email_provider.setOnClickListener(v -> {
                         Intent intent = new Intent(Intent.ACTION_SENDTO);
-                        intent.setData(Uri.parse("mailto:"+cleaner_email));
-                        intent.putExtra(Intent.EXTRA_EMAIL, cleaner_email);
+                        intent.setData(Uri.parse("mailto:"+provider_email));
+                        intent.putExtra(Intent.EXTRA_EMAIL, provider_email);
                         intent.putExtra(Intent.EXTRA_SUBJECT, "");
                         startActivity(intent);
 

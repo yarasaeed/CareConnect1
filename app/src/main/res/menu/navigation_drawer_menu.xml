@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+
+        <item android:title="User">
+            <menu>
+                <item
+                    android:id="@+id/nav_admin"
+                    android:icon="@drawable/ic_user"
+                    android:title="@string/administrator"
+                    app:showAsAction="always" />
+                <item
+                    android:id="@+id/nav_profile"
+                    android:icon="@drawable/ic_user"
+                    android:title="@string/profile"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_booking"
+                    android:icon="@drawable/ic_calendar"
+                    android:title="@string/booking"
+                    app:showAsAction="always"
+                    tools:ignore="AlwaysShowAction" />
+
+                <item
+                    android:id="@+id/nav_offers"
+                    android:icon="@drawable/ic_offer"
+                    android:title="@string/offer"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_reviews"
+                    android:icon="@drawable/ic_review"
+                    android:title="@string/reviews"
+                    app:showAsAction="always" />
+
+
+                <item
+                    android:id="@+id/nav_payments"
+                    android:icon="@drawable/ic_payment"
+                    android:title="@string/payments"
+                    app:showAsAction="always" />
+            </menu>
+        </item>
+        <item android:title="@string/app">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_rate"
+                    android:icon="@drawable/ic_rate"
+                    android:title="@string/rate_app"
+                    app:showAsAction="always" />
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_share"
+                    android:title="@string/share_app"
+                    app:showAsAction="always" />
+                <item
+                    android:id="@+id/nav_more"
+                    android:icon="@drawable/ic_more"
+                    android:title="@string/more_apps"
+                    app:showAsAction="always"
+                    tools:ignore="AlwaysShowAction" />
+            </menu>
+        </item>
+
+        <item android:title="@string/help">
+            <menu>
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_person"
+                    android:title="@string/about_us"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_help"
+                    android:title="@string/help_and_support"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_policy"
+                    android:icon="@drawable/ic_privacy"
+                    android:title="@string/privacy_policy"
+                    app:showAsAction="always" />
+            </menu>
+        </item>
+    </group>
+
+    <item android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout" />
+        </menu>
+
+    </item>
+
+</menu>

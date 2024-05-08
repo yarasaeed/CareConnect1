@@ -141,7 +141,7 @@
                     app:srcCompat="@drawable/ic_user"
                     app:shapeAppearance="@style/circle"/>
                 <TextView
-                    android:id="@+id/provider_name"
+                    android:id="@+id/parent_name"
                     android:maxLines="1"
                     android:ellipsize="marquee"
                     android:singleLine="true"

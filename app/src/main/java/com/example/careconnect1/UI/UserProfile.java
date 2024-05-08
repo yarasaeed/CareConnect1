@@ -2,19 +2,18 @@ package com.example.careconnect1.UI;
 
 import static com.example.careconnect1.Utilities.Config.IP;
 import static com.example.careconnect1.Utilities.Config.USER_IMAGES_DIR;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,27 +25,26 @@ import com.example.careconnect1.Adapters.BookReviewsAdapter;
 import com.example.careconnect1.Model.ReviewsModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
-import com.example.careconnect1.Utilities.LoadingLayout;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.imageview.ShapeableImageView;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 
 public class UserProfile extends AppCompatClass {
-    private TextView text_name, text_role, text_address, text_bio,text_no_reviews;
+    private TextView text_name, text_role, text_address, text_bio, text_no_reviews;
     private LottieAnimationView btn_offers;
     private ChipGroup chipGroup;
-    private  ArrayList<ReviewsModel> arrayList;
+    private ArrayList<ReviewsModel> arrayList;
     private LinearLayoutCompat layout_reviews;
     RecyclerView recyclerView;
     private BookReviewsAdapter adapter;
     private ShapeableImageView icon_email, icon_phone, icon, icon_eco;
-    private LinearLayoutCompat layout_eco, layout_address,layout_services, layout_bio,layout_provider;
+    private LinearLayoutCompat layout_eco, layout_address, layout_services, layout_bio, layout_provider;
     private String user_id = "";
     private AlertDialog alertDialog;
 
@@ -82,7 +80,7 @@ public class UserProfile extends AppCompatClass {
         arrayList = new ArrayList<>();
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        if(bundle !=null){
+        if (bundle != null) {
             user_id = bundle.getString("user_id", "");
         }
     }
@@ -101,7 +99,7 @@ public class UserProfile extends AppCompatClass {
     }
 
     private void getUserData() {
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_user.php?id="+ user_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_user.php?id=" + user_id, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -114,14 +112,14 @@ public class UserProfile extends AppCompatClass {
 
                     //calculateEco(prd);
                     icon_phone.setOnClickListener(view -> {
-                        Intent intent=new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:"+phone+""));
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:" + phone + ""));
                         startActivity(intent);
                     });
 
                     icon_email.setOnClickListener(v -> {
                         Intent intent = new Intent(Intent.ACTION_SENDTO);
-                        intent.setData(Uri.parse("mailto:"+email));
+                        intent.setData(Uri.parse("mailto:" + email));
                         intent.putExtra(Intent.EXTRA_EMAIL, email);
                         intent.putExtra(Intent.EXTRA_SUBJECT, "");
                         startActivity(intent);
@@ -129,25 +127,25 @@ public class UserProfile extends AppCompatClass {
                     });
 
 
-                    text_role.setText(jSONObject.getString("UserRole") );
-                    text_address.setText(jSONObject.getString("address") );
-                    if(jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("company")){
+                    text_role.setText(jSONObject.getString("UserRole"));
+                    text_address.setText(jSONObject.getString("address"));
+                    if (jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("company")) {
                         text_name.setText(jSONObject.getString("f_name"));
                         layout_provider.setVisibility(View.VISIBLE);
-                        text_bio.setText(jSONObject.getString("bio") );
-                        if(offers_count == 0){
+                        text_bio.setText(jSONObject.getString("bio"));
+                        if (offers_count == 0) {
                             btn_offers.setVisibility(View.GONE);
-                        }else {
+                        } else {
                             btn_offers.setVisibility(View.VISIBLE);
                         }
 
-                    }else  if(jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("individual")){
-                        text_name.setText(jSONObject.getString("f_name") +" "+ jSONObject.getString("l_name"));
+                    } else if (jSONObject.getString("UserRole").toLowerCase(Locale.ROOT).equals("individual")) {
+                        text_name.setText(jSONObject.getString("f_name") + " " + jSONObject.getString("l_name"));
                         layout_provider.setVisibility(View.VISIBLE);
-                        text_bio.setText(jSONObject.getString("bio") );
+                        text_bio.setText(jSONObject.getString("bio"));
                         btn_offers.setVisibility(View.GONE);
-                    }else{
-                        text_name.setText(jSONObject.getString("f_name") +" "+ jSONObject.getString("l_name"));
+                    } else {
+                        text_name.setText(jSONObject.getString("f_name") + " " + jSONObject.getString("l_name"));
                         layout_bio.setVisibility(View.GONE);
                         layout_address.setVisibility(View.VISIBLE);
                         layout_reviews.setVisibility(View.GONE);
@@ -167,7 +165,7 @@ public class UserProfile extends AppCompatClass {
                 }
                 getServices();
                 getReviews();
-            }catch (Exception | Error ignored){
+            } catch (Exception | Error ignored) {
 
             }
 
@@ -180,21 +178,21 @@ public class UserProfile extends AppCompatClass {
         requestQueue.add(stringRequest);
     }
 
-    private void getServices(){
+    private void getServices() {
 
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_services_where.php?user_id="+ user_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_services_where.php?user_id=" + user_id, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
                 while (i < jsonArray.length()) {
                     JSONObject jSONObject = jsonArray.getJSONObject(i);
-                    final Chip chip=(Chip)View.inflate(UserProfile.this, R.layout.chip_items_read,null);
-                    chip.setText(jSONObject.getString("ServiceName")+" - "+jSONObject.getString("ServicePrice"));
+                    final Chip chip = (Chip) View.inflate(UserProfile.this, R.layout.chip_items_read, null);
+                    chip.setText(jSONObject.getString("ServiceName") + " - " + jSONObject.getString("ServicePrice"));
                     chipGroup.addView(chip);
                     i++;
                 }
-            }catch (Exception | Error ignored){
+            } catch (Exception | Error ignored) {
 
             }
 
@@ -206,19 +204,19 @@ public class UserProfile extends AppCompatClass {
 
     }
 
-    public void getReviews(){
+    public void getReviews() {
         arrayList = new ArrayList<>();
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_provider.php?provider_id="+ user_id, response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_provider.php?provider_id=" + user_id, response -> {
             int i = 0;
 
             try {
 
                 JSONObject jsonObject = new JSONObject(response);
                 JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
-                if(jsonArray.length() == 0){
+                if (jsonArray.length() == 0) {
                     text_no_reviews.setVisibility(View.VISIBLE);
 
-                }else {
+                } else {
                     text_no_reviews.setVisibility(View.GONE);
                 }
 
@@ -229,17 +227,17 @@ public class UserProfile extends AppCompatClass {
                     String id = jSONObject.getString("ReviewID");
                     String provider_id = jSONObject.getString("ProviderID");
                     String book_id = jSONObject.getString("r_booking_id");
-                    String provider_name = jSONObject.getString("f_name") +" "+jSONObject.getString("l_name")  ;
+                    String provider_name = jSONObject.getString("f_name") + " " + jSONObject.getString("l_name");
                     String provider_icon = jSONObject.getString("icon");
                     String date = jSONObject.getString("date");
-                    arrayList.add(new ReviewsModel(id, book_id,user_id,provider_id, text,provider_name,provider_icon,date));
+                    arrayList.add(new ReviewsModel(id, book_id, user_id, provider_id, text, provider_name, provider_icon, date));
                     i++;
                 }
 
                 adapter = new BookReviewsAdapter(UserProfile.this, arrayList);
                 recyclerView.setAdapter(adapter);
 
-            }catch (Exception | Error ignored){
+            } catch (Exception | Error ignored) {
 
             }
 

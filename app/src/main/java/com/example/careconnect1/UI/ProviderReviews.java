@@ -5,7 +5,7 @@ import static com.example.careconnect1.Utilities.Config.IP;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Toast;
-
+import com.example.careconnect1.Utilities.UserData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -16,7 +16,6 @@ import com.example.careconnect1.Adapters.ProviderReviewsAdapter;
 import com.example.careconnect1.Model.ReviewsModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
-import com.example.careconnect1.Utilities.UserData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -58,43 +57,42 @@ public class ProviderReviews extends AppCompatClass {
         getReviews();
     }
 
-    public void getReviews(){
+    public void getReviews() {
         arrayList = new ArrayList<>();
-            @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_cleaner.php?cleaner_id="+ userData.getId(), response -> {
-                int i = 0;
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
-                    if(jsonArray.length() == 0){
-                        Toast.makeText(ProviderReviews.this,   "There are no reviews", Toast.LENGTH_SHORT).show();
-                    }
-
-                    while (i < jsonArray.length()) {
-                        JSONObject jSONObject = jsonArray.getJSONObject(i);
-                        String text = jSONObject.getString("ReviewText");
-                        String user_id = jSONObject.getString("UserID");
-                        String id = jSONObject.getString("ReviewID");
-                        String cleaner_id = jSONObject.getString("CleanerID");
-                        String book_id = jSONObject.getString("r_booking_id");
-                        String customer_name = jSONObject.getString("f_name") +" "+jSONObject.getString("l_name")  ;
-                        String customer_icon = jSONObject.getString("icon");
-                        String date = jSONObject.getString("date");
-                        arrayList.add(new ReviewsModel(id, book_id,user_id,cleaner_id, text,customer_name,customer_icon,date));
-                        i++;
-                    }
-                    adapter = new ProviderReviewsAdapter(ProviderReviews.this, arrayList, false);
-                    recyclerView.setAdapter(adapter);
-                }catch (Exception | Error ignored){
-
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_reviews_where_cleaner.php?cleaner_id=" + userData.getId(), response -> {
+            int i = 0;
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
+                if (jsonArray.length() == 0) {
+                    Toast.makeText(ProviderReviews.this, "There are no reviews", Toast.LENGTH_SHORT).show();
                 }
 
-            }, error -> {
+                while (i < jsonArray.length()) {
+                    JSONObject jSONObject = jsonArray.getJSONObject(i);
+                    String text = jSONObject.getString("ReviewText");
+                    String user_id = jSONObject.getString("UserID");
+                    String id = jSONObject.getString("ReviewID");
+                    String cleaner_id = jSONObject.getString("CleanerID");
+                    String book_id = jSONObject.getString("r_booking_id");
+                    String customer_name = jSONObject.getString("f_name") + " " + jSONObject.getString("l_name");
+                    String customer_icon = jSONObject.getString("icon");
+                    String date = jSONObject.getString("date");
+                    arrayList.add(new ReviewsModel(id, book_id, user_id, cleaner_id, text, customer_name, customer_icon, date));
+                    i++;
+                }
+                adapter = new ProviderReviewsAdapter(ProviderReviews.this, arrayList, false);
+                recyclerView.setAdapter(adapter);
+            } catch (Exception | Error ignored) {
 
-            });
-            RequestQueue requestQueue = Volley.newRequestQueue(ProviderReviews.this);
-            requestQueue.add(stringRequest);
-        }
+            }
 
+        }, error -> {
+
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(ProviderReviews.this);
+        requestQueue.add(stringRequest);
+    }
 
 
 }

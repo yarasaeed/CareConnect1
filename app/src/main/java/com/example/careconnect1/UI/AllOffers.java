@@ -46,9 +46,9 @@ public class AllOffers extends AppCompatClass {
     @Override
     public void setActions() {
         super.setActions();
-        toolbar.inflateMenu(R.menu.menu_search);
-        MenuItem item = toolbar.getMenu().findItem(R.id.item_search);
-        searchView = (SearchView) item.getActionView();
+       // toolbar.inflateMenu(R.menu.menu_search);
+      //  MenuItem item = toolbar.getMenu().findItem(R.id.item_search);
+        //searchView = (SearchView) item.getActionView();
         getOffers();
     }
 
