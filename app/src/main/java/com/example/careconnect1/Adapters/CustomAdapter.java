@@ -1,85 +1,67 @@
 package com.example.careconnect1.Adapters;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.careconnect1.R;
 
+import java.util.ArrayList;
+
 public class CustomAdapter extends ArrayAdapter<String> {
-    private final Activity context;
-    private final String[] textData;
-    private final String[] temp;
-    private final int[] mBackgroundImages;
-    private final OnButtonClickListener mListener;
+    private Context context;
+    private ArrayList<String> locationList;
+    private ArrayList<String> iconUrlList; // Add a new ArrayList to store icon URLs
 
-
-    public CustomAdapter(Activity context, String[] textData, String[] temp, int[] backgroundImages, OnButtonClickListener listener) {
-        super(context, R.layout.row, textData);
+    public CustomAdapter(Context context, ArrayList<String> locationList, ArrayList<String> iconUrlList) {
+        super(context, 0, locationList);
         this.context = context;
-        this.textData = textData;
-        this.temp = temp;
-        this.mBackgroundImages = backgroundImages;
-        this.mListener = listener;
+        this.locationList = locationList;
+        this.iconUrlList = iconUrlList; // Initialize the iconUrlList
     }
 
-
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        Holder holder;
-        if (convertView == null) {
-            LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(R.layout.row, parent, false);
-            holder = new Holder();
-            holder.textView1 = convertView.findViewById(R.id.center_name);
-            holder.textView2 = convertView.findViewById(R.id.center_address);
-            holder.textView3 = convertView.findViewById(R.id.center_distance);
-            holder.imageView = convertView.findViewById(R.id.center_image);
-            holder.relativeLayout = convertView.findViewById(R.id.Center1); // Replace with your RelativeLayout's ID
-            holder.ratingBar = convertView.findViewById(R.id.center_rating);
-            convertView.setTag(holder);
-        } else {
-            holder = (Holder) convertView.getTag();
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View listItem = convertView;
+        if (listItem == null) {
+            listItem = LayoutInflater.from(context).inflate(R.layout.list_item_layout, parent, false);
         }
 
-        holder.textView1.setText(textData[position]);
-        holder.textView2.setText(temp[position] + " \u2103");
+        String location = locationList.get(position);
+        String[] locationParts = location.split(": ");
 
-        int backgroundIndex = position % mBackgroundImages.length;
-        holder.relativeLayout.setBackgroundResource(mBackgroundImages[backgroundIndex]);
+        TextView textViewName = listItem.findViewById(R.id.textViewName);
+        TextView textViewLocation = listItem.findViewById(R.id.textViewLocation);
+        ImageView iconImageView = listItem.findViewById(R.id.iconImageView);
 
-        holder.ratingBar.setRating(4.5f); // Set rating here
-        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onButtonClick(position);
-                }
-                Intent intent = new Intent(CustomAdapter.this.getContext(), BookingDetailsActivity.class);
-                context.startActivity(intent);
-            }
-        });
+        if (locationParts.length == 2) {
+            textViewName.setText(locationParts[0]);
+            textViewLocation.setText(locationParts[1]);
+        }
 
+        // Load the icon image using Glide
+        String iconUrl = iconUrlList.get(position);
+        loadImageWithGlide(iconUrl, iconImageView);
 
-        return convertView;
+        return listItem;
     }
 
-    public interface OnButtonClickListener {
-        void onButtonClick(int position);
-    }
-
-    static class Holder {
-        TextView textView1;
-        TextView textView2;
-        TextView textView3;
-        ImageView imageView;
-        RelativeLayout relativeLayout;
-        RatingBar ratingBar;
+    private void loadImageWithGlide(String iconUrl, ImageView imageView) {
+        // Use Glide to load the image
+        Glide.with(context)
+                .load(iconUrl) // Load the image from the URL
+                .into(imageView);
     }
 }

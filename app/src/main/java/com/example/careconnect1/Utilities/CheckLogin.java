@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.careconnect1.UI.LogIn;
+import com.example.careconnect1.Utilities.UserData;
 
 public class CheckLogin {
     public static void start(Context context, Class<?> activity){

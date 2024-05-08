@@ -25,7 +25,6 @@ import com.bumptech.glide.Glide;
 import com.example.careconnect1.FileUpload.ImageUploaderClass;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
-import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,6 +32,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import com.example.careconnect1.Utilities.UserData;
 
 public class AddOffer extends AppCompatClass {
     private UserData userData;

@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:theme="@style/Theme.MaterialComponents.Light"
     android:layout_height="match_parent"
-    tools:context=".UI.Reviews">
-    <include layout="@layout/toolbar"/>
+    tools:context=".Fragments.MainListFragment">
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search For Babysitters || Centers :" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/generalToolbar"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerView"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        android:layout_below="@id/searchView" />
 
 </RelativeLayout>

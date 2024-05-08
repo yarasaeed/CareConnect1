@@ -84,7 +84,7 @@ public class FragmentBookingParent extends Fragment implements FragmentRefresh {
     }
     public void getBooking(){
         arrayList = new ArrayList<>();
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_customer_booking.php?user_id=" + userData.getId(), response -> {
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_parent_booking.php?user_id=" + userData.getId(), response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);

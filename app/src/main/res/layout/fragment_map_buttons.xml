@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/btnViewAllBabysitters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View All Babysitters"
+        android:layout_marginBottom="16dp"
+        style="@style/mainButtons"/>
+
+    <Button
+        android:id="@+id/btnViewNearbyBabysitters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Nearby Babysitters"
+        android:layout_marginBottom="16dp"
+        style="@style/mainButtons"/>
+
+    <Button
+        android:id="@+id/btnViewHighRatedBabysitters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View High Rated Babysitters"
+        style="@style/mainButtons"/>
+
+    <!-- activity_main.xml -->
+    <FrameLayout
+        android:id="@+id/fragment_container2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

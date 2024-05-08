@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    tools:context=".Fragments.AddReviewFragment"
+    android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+    <EditText
+        android:layout_margin="10dp"
+        style="@style/editTextStyle"
+        android:padding="10dp"
+        android:background="@drawable/edittext_background"
+        android:autofillHints="none"
+        android:layout_below="@+id/generalToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:inputType="textMultiLine"
+        android:id="@+id/text"
+        android:hint="Enter review here"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/mainButtons"
+        android:text="Add"
+        android:id="@+id/btn_add"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/text"/>
+
+</RelativeLayout>

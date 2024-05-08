@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.careconnect1.Fragments.CareProvidersFragment;
-import com.example.careconnect1.Fragments.ParentsFragment;
+import com.example.careconnect1.Fragments.MainListFragment;
+import com.example.careconnect1.Fragments.MapButtonsFragment;
 
 public class NewViewPagerAdapter extends FragmentStateAdapter {
     // Total number of pages (fragments) in the ViewPager2
@@ -21,9 +21,9 @@ public class NewViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         // Determine which fragment should be displayed for each position
         if (position == 0) {
-            return ParentsFragment.newInstance();
+            return MainListFragment.newInstance();
         } else {
-            return CareProvidersFragment.newInstance();
+            return MapButtonsFragment.newInstance();
         }
     }
 

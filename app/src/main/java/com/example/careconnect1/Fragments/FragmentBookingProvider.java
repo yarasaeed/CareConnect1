@@ -59,6 +59,7 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
 
         View v =  inflater.inflate(R.layout.fragment_booking_provider, container, false);
         setInitialize(v);
+        userData = new UserData(getContext()); // Initialize userData here
         setActions(v);
 
         return v;
@@ -70,19 +71,16 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
     }
 
     private void setActions(View v){
-        if(userData.isLogin()){
-
-            getBooking();
-        }
+        getBooking();
     }
 
 
 
+
     public void getBooking(){
-
-
         arrayList = new ArrayList<>();
-        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_cleaner_booking.php?cleaner_id="+ userData.getId(), response -> {
+        String userId = userData.getId(); // Retrieve user id from userData
+        @SuppressLint("SetTextI18n") StringRequest stringRequest = new StringRequest(Request.Method.GET, IP + "select_provider_booking.php?provider_id="+ userId, response -> {
             int i = 0;
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -102,7 +100,7 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
                     String book_status = jSONObject.getString("book_status");
                     String rejected_cause = jSONObject.getString("rejected_cause");
 
-                    String center_id = jSONObject.getString("user_id");
+                    String provider_id = jSONObject.getString("user_id");
                     String parent_email = "", parent_id="", parent_name="", parent_icon="";
 
                     if(!jSONObject.isNull("customer_info")) {
@@ -137,15 +135,15 @@ public class FragmentBookingProvider extends Fragment implements FragmentRefresh
                             String id =  jb.getString("ServiceID");
                             String name =  jb.getString("ServiceName");
                             String price =  jb.getString("ServicePrice");
-                            String s_cleaner_id =  jb.getString("s_cleaner_id");
-                            arrayService.add(new ServiceModel(id, name, price,s_cleaner_id));
+                            String s_provider_id =  jb.getString("s_provider_id");
+                            arrayService.add(new ServiceModel(id, name, price,s_provider_id));
                             j++;
                         }
                     }
 
 
                     arrayList.add(new BookingModel(id_book,bookingDate,bookingTime,parent_id, parent_name, parent_email,parent_icon,
-                            center_id, "", "", "",book_status, offer_id, offer_price,
+                            provider_id, "", "", "",book_status, offer_id, offer_price,
                             offer_time, offer_description, offer_icon, payment_id,payemnt_type,payment_amount,rejected_cause,arrayService));
                     i++;
                 }

@@ -35,7 +35,7 @@ public class AllReviews extends AppCompatClass {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reviews);
+        setContentView(R.layout.fragment_reviews);
         setMethods("Reviews", "");
     }
 

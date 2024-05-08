@@ -35,14 +35,16 @@ public class UserType extends AppCompatClass {
     public void setActions() {
         super.setActions();
         btn_childcare_center.setOnClickListener(v -> openLogin("center"));
-        btn_baby_sitter.setOnClickListener(v -> openLogin("individual"));
-        btn_parent.setOnClickListener(v -> openLogin("customer"));
+        btn_baby_sitter.setOnClickListener(v -> openLogin("babysitter"));
+        System.out.println("hello");
+        btn_parent.setOnClickListener(v -> openLogin("parent"));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_close));
     }
 
     private void openLogin(String type){
         Intent intent = new Intent(UserType.this, SignUp.class);
         intent.putExtra("type", type);
+        System.out.println("hii");
         startActivity(intent);
     }
 }

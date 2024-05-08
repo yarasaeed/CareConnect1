@@ -6,7 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
+import com.example.careconnect1.Utilities.UserData;
 import androidx.annotation.NonNull;
 
 import com.android.volley.Request;
@@ -17,7 +17,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.careconnect1.Enumerations.PaymentMethod;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
-import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;

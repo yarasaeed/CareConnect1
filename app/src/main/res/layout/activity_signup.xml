@@ -1,110 +1,149 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".UI.SignUp">
+
     <include layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/signUpText"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/signup"
-        android:textAlignment="center"
-        android:textColor="@color/purple"
-        android:textSize="36dp"
-        android:textStyle="bold" />
-    <RelativeLayout
-        android:id="@+id/layout_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_below="@+id/generalToolbar">
 
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/icon"
-            android:layout_width="94dp"
-            android:layout_height="80dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_profile_add"
-            app:shapeAppearance="@style/circle" />
-    </RelativeLayout>
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/layout_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpText"
-        android:orientation="vertical">
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fn_layout"
-            style="@style/textInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fn_edit"
-                style="@style/editTextLayout"
-                android:hint="@string/first_name"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ln_layout"
-            style="@style/textInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ln_edit"
-            style="@style/editTextLayout"
-
-            android:hint="@string/last_name"
-            android:inputType="text"
-           />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email_edit"
-                style="@style/editTextLayout"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phone_edit"
-                style="@style/editTextLayout"
-
-                android:hint="@string/phone"
-                android:inputType="phone"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password_edit"
-                style="@style/editTextLayout"
-
-                android:hint="@string/password"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_signup"
-            style="@style/mainButtons"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:text="@string/signup" />
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/title1"
+                style="@style/textViewStyleTitle"
+                android:layout_margin="10dp"
+                android:text="@string/signup"
+                android:textSize="35sp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layout_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title1"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/layout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icon"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_profile_add"
+                        app:shapeAppearance="@style/circle" />
+                </RelativeLayout>
 
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fn_layout"
+                    style="@style/textInputLayout">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fn_edit"
+                        style="@style/editTextLayout"
+                        android:hint="@string/first_name"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ln_layout"
+                    style="@style/textInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/ln_edit"
+                        style="@style/editTextLayout"
+
+                        android:hint="@string/last_name"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_edit"
+                        style="@style/editTextLayout"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_edit"
+                        style="@style/editTextLayout"
+
+                        android:hint="@string/phone"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout style="@style/textInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password_edit"
+                        style="@style/editTextLayout"
+
+                        android:hint="@string/password"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_layout"
+                    style="@style/textInputLayout">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_open_map"
+                        style="@style/mainButtons"
+                        android:layout_width="match_parent"
+                        android:text="select location" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_signup"
+                    style="@style/mainButtons"
+                    android:layout_width="match_parent"
+                    android:text="@string/signup" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textViewStyleDetail"
+                        android:layout_marginTop="19dp"
+                        android:text="already have account" />
+
+                    <TextView
+                        android:id="@+id/text_login"
+                        style="@style/textViewStyleTitle"
+                        android:layout_marginTop="19dp"
+                        android:text="@string/login_now"
+                        />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </RelativeLayout>
+
+    </ScrollView>
 </LinearLayout>

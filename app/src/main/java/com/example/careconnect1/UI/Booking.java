@@ -23,7 +23,6 @@ import com.example.careconnect1.Enumerations.PaymentMethod;
 import com.example.careconnect1.Model.PaymentModel;
 import com.example.careconnect1.R;
 import com.example.careconnect1.Utilities.AppCompatClass;
-import com.example.careconnect1.Utilities.UserData;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -42,6 +41,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
+import com.example.careconnect1.Utilities.UserData;
 
 public class Booking extends AppCompatClass implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener {
     private ChipGroup chipGroup;

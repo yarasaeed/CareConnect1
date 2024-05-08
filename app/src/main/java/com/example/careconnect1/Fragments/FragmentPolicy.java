@@ -12,32 +12,31 @@ import androidx.fragment.app.Fragment;
 
 import com.example.careconnect1.R;
 
-public class FragmentSupport extends Fragment {
-    private WebView webView;
+public class FragmentPolicy extends Fragment {
+    private WebView webViewPolicy;
 
-
-    public FragmentSupport() {
+    public FragmentPolicy() {
         // Required empty public constructor
     }
 
+    public static FragmentPolicy newInstance() {
 
-    public static FragmentSupport newInstance() {
-
-        return new FragmentSupport();
+        return new FragmentPolicy();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_support, container, false);
-        webView = v.findViewById(R.id.webView);
-        webView.loadUrl(IP + "support.html");
+        View v = inflater.inflate(R.layout.fragment_policy, container, false);
+        webViewPolicy = v.findViewById(R.id.webViewPolicy);
+        webViewPolicy.loadUrl(IP + "privacy.html");
 
         return v;
     }
